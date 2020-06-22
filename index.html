@@ -20,13 +20,15 @@
 	</header>
 	
 	<div id="top">
-		<div class="text">
+		<div class="text" id="toptext">
 			<span>Learn and create complex projects with the </span>
 			<span id="emphasize">micro:bit</span>
 		</div>
-		<!--<img src="images/microbit_on_table.jpg" alt="micro:bits on a table">-->
-		<div id="image"></div>
+		<img src="images/microbit_on_table.jpg" alt="micro:bits on a table">
+		<!--<div id="image"></div>-->
 	</div>
+	
+	<p id="test">he</p>
 	
 	<footer>
 		<div><a href="#"><img src="images/logo.png" class="logo" alt="logo"></a></div>
@@ -39,3 +41,14 @@
 </body>
 </html>
 
+<script>
+/*document.getElementById("test").innerHTML = document.getElementById("top").style.height;*/
+var topElem = document.getElementById('toptext');
+var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height');
+	
+document.getElementById('test').innerHTML = topHeight;
+	
+	
+document.getElementById('top').style.height = topHeight;
+	
+</script> 
