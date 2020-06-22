@@ -49,9 +49,39 @@ footer img{
 #footer_links{
 	font-size: 40px;
 }
+
+/*-- Top --*/
+#top{
+	
+
+	background-color: lightskyblue;
+    overflow: hidden;
+	margin: 10px;
+}
+
+#top .text{
+	padding: 10px;
+	display: inline-block;
+	width: 40%;
+	font-size: 70px;
+}
+
+#image{
+	display: inline-block;
+	float: right;
+	height: 100%;
+	width: 50%;
+	padding-bottom: 50px;
+	background-image: url(../images/microbit_on_table.jpg);
+	clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#emphasize{
+	color: white;
+}
+
 /* --------- */
 .text{
 	font-family: 'Ubuntu', sans-serif;
 	font-color: black;
 }
-
