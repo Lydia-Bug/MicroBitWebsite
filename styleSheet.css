@@ -52,28 +52,27 @@ footer img{
 
 /*-- Top --*/
 #top{
-	
-
 	background-color: lightskyblue;
     overflow: hidden;
 	margin: 10px;
+	/*height: 400px;*/
 }
 
-#top .text{
+#toptext{
 	padding: 10px;
 	display: inline-block;
 	width: 40%;
 	font-size: 70px;
 }
 
-#image{
+#top img{
 	display: inline-block;
 	float: right;
-	height: 100%;
-	width: 50%;
-	padding-bottom: 50px;
+	width: 55%;
+	max-height: 100%;
+	object-fit: cover;
 	background-image: url(../images/microbit_on_table.jpg);
-	clip-path: polygon(40% 0, 100% 0, 100% 100%, 0 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
 }
 
 #emphasize{
@@ -85,3 +84,4 @@ footer img{
 	font-family: 'Ubuntu', sans-serif;
 	font-color: black;
 }
+
