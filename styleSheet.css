@@ -12,14 +12,18 @@ a:visited {
   color: black;
 }
 
-/* -- NavBar -- */
-
-header{
+/* Navbar and Footer */
+header, footer{
 	background-color: #d5edf2;
 	padding: 10px;
     overflow: hidden;
 }
 
+.logo{
+	float: left;
+	padding-top: 8px; /* Because the logo was sightly displaced */
+}
+/* -- NavBar -- */
 #title{
 	font-family: 'IBM Plex Mono', monospace;
 	font-size: 50px;
@@ -29,8 +33,6 @@ header{
 	
 header img{
 	height: 50px;
-	float: left;
-	padding-top: 8px; /* Because the logo was sightly displaced */
 }
 
 #navbar_links{
@@ -38,14 +40,18 @@ header img{
 	font-size: 50px;
 }
 
+/* -- Footer -- */	
+footer img{
+	padding-right: 15px;
+	height: 35px;
+}
+
+#footer_links{
+	font-size: 40px;
+}
 /* --------- */
 .text{
 	font-family: 'Ubuntu', sans-serif;
 	font-color: black;
 }
 
-#top{
-	background-color: aqua;
-	margin: 10px;
-	padding: 150px;
-}
