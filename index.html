@@ -25,10 +25,7 @@
 			<span id="emphasize">micro:bit</span>
 		</div>
 		<img src="images/microbit_on_table.jpg" alt="micro:bits on a table">
-		<!--<div id="image"></div>-->
 	</div>
-	
-	<p id="test">he</p>
 	
 	<footer>
 		<div><a href="#"><img src="images/logo.png" class="logo" alt="logo"></a></div>
@@ -41,14 +38,15 @@
 </body>
 </html>
 
-<script>
-/*document.getElementById("test").innerHTML = document.getElementById("top").style.height;*/
-var topElem = document.getElementById('toptext');
-var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height');
-	
-document.getElementById('test').innerHTML = topHeight;
-	
-	
-document.getElementById('top').style.height = topHeight;
-	
+
+<script> 
+//This code will set the height of the top div, to the height of the text inside it. This is so the image is always the same size as the text, not larger
+var topElem = document.getElementById('toptext'); //finds element of toptext
+var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height'); //finds height of toptext
+document.getElementById('top').style.height = topHeight; //sets the height of the top div to the height of the text
+
+window.onresize = function(event) { //does function everytime window resizes
+	var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height');
+	document.getElementById('top').style.height = topHeight;
+};
 </script> 
