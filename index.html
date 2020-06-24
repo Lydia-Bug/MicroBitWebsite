@@ -42,11 +42,19 @@
 <script> 
 //This code will set the height of the top div, to the height of the text inside it. This is so the image is always the same size as the text, not larger
 var topElem = document.getElementById('toptext'); //finds element of toptext
-var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height'); //finds height of toptext
-document.getElementById('top').style.height = topHeight; //sets the height of the top div to the height of the text
+setHeight();
 
 window.onresize = function(event) { //does function everytime window resizes
-	var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height');
-	document.getElementById('top').style.height = topHeight;
+	setHeight();
 };
+	
+function setHeight(){
+	var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height'); //finds height of toptext
+	topHeight = topHeight.replace("px","");
+	topHeight=+topHeight;
+	var n = topHeight;
+	topHeight=n+20+'px'; //adds 20px to value "adds padding"
+	
+	document.getElementById('top').style.height = topHeight; //sets the height of the top div to the height of the text
+}	
 </script> 
