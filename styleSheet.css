@@ -134,6 +134,12 @@ footer img{
 	background-image: linear-gradient(to right, #5ee7eb , #60f8d6);
 }
 
+
+@media only screen and (max-width: 600px) {
+  h6 {
+    font-size: 100px;
+  }
+}
 /* --------- */
 .text{
 	font-family: 'Ubuntu', sans-serif;
