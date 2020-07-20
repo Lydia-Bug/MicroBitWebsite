@@ -41,8 +41,27 @@ header img{
 }
 
 #navbar_links{
-	float: right;
+	font-size: 35px;
+	float: left;
+	margin-left: 0px;
+}
+
+
+@media only screen and (min-width: 680px){
+	#navbar_links{
+		float: right;
+	}
+}
+@media only screen and (min-width: 660px){
+	#navbar_links{
+		margin-left: 20px;
+	}
+}
+@media only screen and (min-width: 556px){
+	#navbar_links{
+	float: left;
 	font-size: 50px;
+	}
 }
 
 /* -- Footer -- */	
@@ -56,23 +75,35 @@ footer img{
 }
 
 /*-- Top --*/
+#top img{
+	display: none;
+}
+
 #top{
 	background-image: linear-gradient(to right, #017abc , #5cd6ff);
-	
-	
     overflow: hidden;
 	margin: 10px;
 	/*height: 400px;*/
 }
 
 #toptext{
+	text-align: center;
 	padding: 10px;
 	display: inline-block;
-	width: 40%;
-	font-size: 70px;
+	font-size: 10vw;
+
 }
 
-#top img{
+#emphasize{
+	color: white;
+}
+
+@media only screen and (min-width: 800px){
+	#toptext{
+	 	width: 40%;
+	}
+	
+	#top img{
 	display: inline-block;
 	float: right;
 	width: 55%;
@@ -80,18 +111,21 @@ footer img{
 	object-fit: cover;
 	background-image: url(../images/microbit_on_table.jpg);
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
-}
-
-#emphasize{
-	color: white;
+	}
+	
+	#toptext{
+		text-align: left;
+		font-size: 70px;
+	}
 }
 /* ---- Bottom ---- */
+
+
+
+
 .bottom{
-	height: 400px;
-	width: 50%;
-	float: left;
-	padding-bottom: 10px;
-	
+	height: 300px;
+	padding: 10px;
 	box-sizing: border-box;
 }
 
@@ -99,47 +133,37 @@ footer img{
 	object-fit: cover;
 	width: 100%;
     height: 100%;
-	
-	
 }
 
 .bottom p{
 	position: relative;
-	top: -260px;
+	top: -205px;
 	background-color: aquamarine;
 	text-align: center;
-	font-size: 100px;
-	padding: 20px;
-	
-	
-}
-
-
-#projects {
-	padding-left: 10px;
-	padding-right: 5px;
+	font-size: 14vw;
+	padding: 10px;
 }
 
 #projects p{
 	background-image: linear-gradient(to right, #5cd6ff , #5ee7eb);
 }
 
-#learn{
-	padding-left: 5px;
-	padding-right: 10px;
-}
-
-
 #learn p{
 	background-image: linear-gradient(to right, #5ee7eb , #60f8d6);
 }
 
-
-@media only screen and (max-width: 600px) {
-  h6 {
-    font-size: 100px;
-  }
+@media only screen and (min-width: 800px) { /*If website is on desktop*/
+	.bottom{
+		width: 50%;
+		float: left;
+		height: 400px;
+	}
+	.bottom p{
+		top: -255px;
+		font-size: 100px;
+	}
 }
+
 /* --------- */
 .text{
 	font-family: 'Ubuntu', sans-serif;
