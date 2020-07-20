@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css" href="styleSheets/styleSheet.css">
+<link rel="stylesheet" type="text/css" href="styleSheets/styleSheet.css"> 
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Ubuntu&display=swap" rel="stylesheet"> <!-- Links to goolgle fonts, font -->
 <link rel="shortcut icon" href="images/logo.png" /> <!-- Puts logo on tab -->
+	
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Next:bit</title>
 </head>
 
@@ -18,8 +20,6 @@
 			<a class="text" href="#" >Learn</a>
 		</div>
 	</header>
-	
-	<h6>hello</h6>
 	
 	<div id="top">
 		<div class="text" id="toptext">
@@ -66,8 +66,8 @@ window.onresize = function(event) { //does function everytime window resizes
 	
 function setHeight(){
 	var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height'); //finds height of toptext
-	topHeight = topHeight.replace("px","");
-	topHeight=+topHeight;
+	topHeight = topHeight.replace("px",""); //turns 100px into 100, an int which we can change
+	topHeight=+topHeight; 
 	var n = topHeight;
 	topHeight=n+20+'px'; //adds 20px to value "adds padding"
 	
