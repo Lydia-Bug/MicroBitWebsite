@@ -55,21 +55,21 @@
 .bottom .text{
 	background-color: lightblue;
 	text-align: center;
-	padding: 15px;
+	padding: 25px;
 }
 
 .bottom h1{
-	font-size: 6vw;
+	font-size: 8vw;
 	padding-bottom: 10px;
 }
 
 .bottom p{
-	font-size: 3.3vw;
+	font-size: 4vw;
 }
 
-@media only screen and (min-width: 800px) { /* If website is on desktop */
+@media only screen and (min-width: 600px) { /* If website is on desktop */
 	.bottom{
-		width: 33.33%;
+		width: 50%;
 		float: left;
 	}
 	
@@ -85,4 +85,19 @@
 		font-size: 25px;
 	}	
 	
+	.bottom .text{
+		height: 250px;
+	}
+}
+
+@media only screen and (min-width: 1000px) { /* If website is on desktop */
+	.bottom{
+		width: 33.33%;
+	}
+}
+	@media only screen and (min-width: 1500px) { /* If website is on desktop */
+	.bottom{
+		width: 25%;
+		float: left;
+	}
 }
