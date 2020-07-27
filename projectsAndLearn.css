@@ -1,0 +1,88 @@
+/* ============= Top ============= */
+#top img{ 
+	display: none; /* Won't display image if in mobile */
+}
+
+#top{
+	background-image: linear-gradient(to right, #017abc , #5cd6ff);
+    overflow: hidden;
+	margin: 10px;
+}
+
+#toptext{
+	text-align: center;
+	padding: 10px;
+	display: inline-block;
+	font-size: 10vw;
+}
+
+#emphasize{
+	color: white;
+}
+
+@media only screen and (min-width: 800px){ /* If in desktop mode */
+	#toptext{
+	 	width: 40%;
+	}
+	
+	#top img{
+	display: inline-block;
+	float: right;
+	width: 55%;
+	height: 100%;
+	object-fit: cover;
+	background-image: url(../images/microbit_on_table.jpg);
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+	}
+	
+	#toptext{
+		text-align: left;
+		font-size: 70px;
+	}
+}
+/* ============= Bottom ============= */
+.bottom{
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.bottom img{ 
+	height: 200px;
+	object-fit: cover;
+	width: 100%;
+}
+
+.bottom .text{
+	background-color: lightblue;
+	text-align: center;
+	padding: 15px;
+}
+
+.bottom h1{
+	font-size: 6vw;
+	padding-bottom: 10px;
+}
+
+.bottom p{
+	font-size: 3.3vw;
+}
+
+@media only screen and (min-width: 800px) { /* If website is on desktop */
+	.bottom{
+		width: 33.33%;
+		float: left;
+	}
+	
+	.bottom img{
+		height: 300px;
+	}
+	
+	.bottom h1{
+		font-size: 40px;
+	}
+
+	.bottom p{
+		font-size: 25px;
+	}	
+	
+}
