@@ -8,6 +8,7 @@
 
 a{
 	text-decoration: none;
+	color: black;
 }
 
 a:visited {
@@ -67,11 +68,22 @@ header img{
 }
 
 /* ============= Footer ============= */	
+footer{
+	float: left;
+	width: 100%;
+}
+
 footer img{
 	padding-right: 15px;
 	height: 35px;
 }
 
 #footer_links{
-	font-size: 40px;
+	font-size: 30px;
+}
+
+@media only screen and (min-width: 556px){
+	#footer_links{
+		font-size: 40px;
+	}
 }
