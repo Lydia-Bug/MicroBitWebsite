@@ -24,26 +24,26 @@
 	#toptext{
 	 	width: 40%;
 	}
-	
-	#top img{
-	display: inline-block;
-	float: right;
-	width: 55%;
-	height: 100%;
-	object-fit: cover;
-	background-image: url(../images/microbit_on_table.jpg);
-	clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
-	}
-	
 	#toptext{
 		text-align: left;
 		font-size: 70px;
 	}
 }
 /* ============= Bottom ============= */
-.bottom{
-	padding: 10px;
+#twoInRow{
+	
+}
+
+.bottom-container {
+    display: table;
+    width: 100%;
+}
+.bottom {
+    display: table-cell;
+	width: 50%;
 	box-sizing: border-box;
+	border: 10px solid white;
+	background-color: lightblue;
 }
 
 .bottom img{ 
@@ -52,25 +52,25 @@
 	width: 100%;
 }
 
+
 .bottom .text{
-	background-color: lightblue;
 	text-align: center;
 	padding: 25px;
 }
 
 .bottom h1{
-	font-size: 8vw;
+	font-size: 6vw;
 	padding-bottom: 10px;
 }
 
 .bottom p{
-	font-size: 4vw;
+	font-size: 3vw;
 }
 
-@media only screen and (min-width: 600px) { /* If website is on desktop */
+/*
+@media only screen and (min-width: 600px) { /* If website is on desktop *//*
 	.bottom{
 		width: 50%;
-		float: left;
 	}
 	
 	.bottom img{
@@ -83,21 +83,16 @@
 
 	.bottom p{
 		font-size: 25px;
-	}	
-	
-	.bottom .text{
-		height: 250px;
 	}
 }
-
-@media only screen and (min-width: 1000px) { /* If website is on desktop */
+/*
+@media only screen and (min-width: 1000px) { /* If website is on desktop *//*
 	.bottom{
 		width: 33.33%;
 	}
 }
-	@media only screen and (min-width: 1500px) { /* If website is on desktop */
+@media only screen and (min-width: 1500px) { /* If website is on desktop *//*
 	.bottom{
 		width: 25%;
-		float: left;
 	}
 }
