@@ -31,16 +31,16 @@
 }
 /* ============= Bottom ============= */
 #twoInRow{
-	
+	display: inline;
+}
+#threeInRow{
+ 	display: none;
+ }
+#fourInRow{
+	display: none;
 }
 
-.bottom-container {
-    display: table;
-    width: 100%;
-}
 .bottom {
-    display: table-cell;
-	width: 50%;
 	box-sizing: border-box;
 	border: 10px solid white;
 	background-color: lightblue;
@@ -52,24 +52,33 @@
 	width: 100%;
 }
 
-
 .bottom .text{
 	text-align: center;
 	padding: 25px;
 }
 
 .bottom h1{
-	font-size: 6vw;
+	font-size: 7vw;
 	padding-bottom: 10px;
 }
 
 .bottom p{
-	font-size: 3vw;
+	font-size: 4vw;
 }
 
-/*
-@media only screen and (min-width: 600px) { /* If website is on desktop *//*
+
+@media only screen and (min-width: 600px) { /* If website is on desktop */
+	.bottom-container {
+    	display: table;
+    	width: 100%;
+	}
+
+	#twoInRow{
+		display: inline;
+	}
+
 	.bottom{
+		display: table-cell;
 		width: 50%;
 	}
 	
@@ -85,14 +94,34 @@
 		font-size: 25px;
 	}
 }
-/*
-@media only screen and (min-width: 1000px) { /* If website is on desktop *//*
+
+@media only screen and (min-width: 1000px) { /* If website is on desktop */
+
+	#twoInRow{
+		display: none;
+	}
+
+	#threeInRow{
+		display: inline;
+	}
+
 	.bottom{
 		width: 33.33%;
 	}
 }
-@media only screen and (min-width: 1500px) { /* If website is on desktop *//*
+
+
+@media only screen and (min-width: 1500px) { /* If website is on desktop */
+	#threeInRow{
+		display: none;
+	}
+
+	#fourInRow{
+		display: inline;
+	}
+
 	.bottom{
 		width: 25%;
+
 	}
 }
