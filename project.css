@@ -1,13 +1,33 @@
-.heading{
+.box {
 	box-sizing: border-box;
+	border: 10px solid white;
+	
+}
+
+.box img{ 
+	height: 200px;
+	object-fit: cover;
 	width: 100%;
-	display: flex;
 }
 
-.box{
-	overflow: hidden;
-	width: 100px;
-	display: inline;
+#bottomImg{
+	float: right;
+	position: relative;
+	bottom: 20px;
+}
+
+.box .text{
+	height: 200px;
+	background-color: lightblue;
+	float: left;
+	width: 100%;
 }
 
 
+@media only screen and (min-width: 600px) { /* If website is on desktop */
+	.box{
+		width: 50%;
+		
+	}
+	
+}
