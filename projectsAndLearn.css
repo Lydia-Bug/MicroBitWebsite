@@ -1,34 +1,3 @@
-/* ============= Top ============= */
-#top img{ 
-	display: none; /* Won't display image if in mobile */
-}
-
-#top{
-	background-image: linear-gradient(to right, #017abc , #5cd6ff);
-    overflow: hidden;
-	margin: 10px;
-}
-
-#toptext{
-	text-align: center;
-	padding: 10px;
-	display: inline-block;
-	font-size: 10vw;
-}
-
-#emphasize{
-	color: white;
-}
-
-@media only screen and (min-width: 800px){ /* If in desktop mode */
-	#toptext{
-	 	width: 40%;
-	}
-	#toptext{
-		text-align: left;
-		font-size: 70px;
-	}
-}
 /* ============= Bottom ============= */
 #twoInRow{
 	display: inline;
