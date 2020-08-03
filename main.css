@@ -87,6 +87,7 @@ header img{
 footer{
 	float: left;
 	width: 100%;
+	box-sizing: border-box;
 }
 
 footer img{
