@@ -4,12 +4,6 @@
 	display: none; /* Won't display image if in mobile */
 }
 
-#top{
-	background-image: linear-gradient(to right, #017abc , #5cd6ff);
-    overflow: hidden;
-	margin: 10px;
-}
-
 #toptext{
 	text-align: center;
 	padding: 10px;
@@ -57,7 +51,6 @@
 .bottom p{
 	position: relative;
 	top: -205px; /* Moves band of text to centre of box */
-	background-color: aquamarine;
 	text-align: center;
 	font-size: 14vw;
 	padding: 10px;
