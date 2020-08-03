@@ -14,6 +14,22 @@ a{
 a:visited {
   color: black;
 }
+/* ============= Top ============= */
+#top{
+	background-image: linear-gradient(to right, #017abc , #5cd6ff);
+	margin: 10px;
+}
+
+#top h1{
+	padding: 10px;
+	font-size: 10vw;
+}
+
+@media only screen and (min-width: 800px){ /* If in desktop mode */
+	#top h1{
+		font-size: 70px;
+	}
+}
 
 /* ============= Text ============= */
 .text{
