@@ -39,14 +39,20 @@
 	padding: 10px;
 	font-size: 20px;
 }
-/* ============= Instructions ============= */
-.sticky {
+
+/* ============= Bottom ============= */
+
+.plainText{
+	padding-bottom: 10px;
+	font-size: 18px;
+}
+
+/* ============= Contents ============= */
+.sticky { /*This is applided to the contents when it reaches the top of the page*/
   position: fixed;
   top: 0;
   width: 100%;
 }
-
-
 
 #contents{
 	box-sizing: border-box;
@@ -54,11 +60,18 @@
 	float: left;
 	width: 30%;
 	list-style-position: inside;
+	padding: 10px;
+	border-radius: 30px;
+	background-image: linear-gradient(to bottom right, #5cd6ff, #60f8d6);
+	
 }
 
 #contents li{
-	
+	list-style-type: circle;
+	/*list-style-image: url('../images/bullet.png');*/
 }
+
+/* ============= Instructions ============= */
 
 #instructions{
 	position: relative;
@@ -81,11 +94,6 @@
 	font-size: 35px;
 }
 
-.plainText{
-	padding-bottom: 10px;
-	font-size: 18px;
-}
-
 @media only screen and (min-width: 1000px){
 	#instructions h3{
 		font-size: 5vw;
@@ -93,9 +101,5 @@
 
 	#instructions h4{
 		font-size: 3vw;
-	}
-
-	#instructions p{
-		
 	}
 }
