@@ -36,9 +36,9 @@
 	
 	<div id="contents" class="text">
 		<ul>
-			<li class="plainText" ><a href = "#stepOne">Step 1: Make it</a></li>
-			<li class="plainText" ><a href = "#stepTwo">Step 2: Code it</a></li>
-			<li class="plainText" ><a href = "#stepThree">Step 3: Improve it</a></li>
+			<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Step 1: Make it</a></li>
+			<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Step 2: Code it</a></li>
+			<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Step 3: Improve it</a></li>
 		</ul>
 	</div>
 	
@@ -92,6 +92,24 @@
 		  } else {
 			contents.classList.remove("sticky");
 		  }
+		}
+		
+		function stepOne() {
+			document.getElementById("stepOneContents").style.color = "white";
+			document.getElementById("stepTwoContents").style.color = "black";
+			document.getElementById("stepThreeContents").style.listStyleImage = "url('../images/bullet.png')";
+		}
+		
+		function stepTwo() {
+			document.getElementById("stepOneContents").style.color = "black";
+			document.getElementById("stepTwoContents").style.color = "white";
+			document.getElementById("stepThreeContents").style.color = "black";
+		}
+		
+		function stepThree() {
+			document.getElementById("stepOneContents").style.color = "black";
+			document.getElementById("stepTwoContents").style.color = "black";
+			document.getElementById("stepThreeContents").style.color = "white";
 		}
 	</script>
 </body>
