@@ -58,7 +58,7 @@
 	box-sizing: border-box;
 	border: 10px solid white;
 	float: left;
-	width: 30%;
+	width: 20%;
 	list-style-position: inside;
 	padding: 10px;
 	border-radius: 30px;
@@ -69,6 +69,7 @@
 #contents li{
 	list-style-type: circle;
 	/*list-style-image: url('../images/bullet.png');*/
+	font-size: 20px;
 }
 
 /* ============= Instructions ============= */
@@ -81,11 +82,11 @@
 	box-sizing: border-box;
 	background-color: #d5edf2;
 	float: right;
-	width: 70%;
+	width: 80%;
 }
 
 #instructions h3{
-	padding-bottom: 10px;
+	padding-bottom: 30px;
 	font-size: 50px;
 }
 
@@ -93,13 +94,13 @@
 	padding-bottom: 10px;
 	font-size: 35px;
 }
-
+/*
 @media only screen and (min-width: 1000px){
 	#instructions h3{
-		font-size: 5vw;
+		font-size: 4vw;
 	}
 
 	#instructions h4{
 		font-size: 3vw;
 	}
-}
+}*/
