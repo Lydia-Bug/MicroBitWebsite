@@ -1,5 +1,9 @@
 
 /* ============= Top ============= */
+#top{
+	margin: 10px;
+}
+
 #top img{ 
 	display: none; /* Won't display image if in mobile */
 }
@@ -32,7 +36,7 @@
 	
 	#toptext{
 		text-align: left;
-		font-size: 70px;
+		font-size: 90px;
 	}
 }
 /* ============= Bottom ============= */
