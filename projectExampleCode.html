@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="../../styleSheets/main.css"> 
+<link rel="stylesheet" type="text/css" href="../../styleSheets/project.css"> 
+<link rel="stylesheet" type="text/css" href="../../styleSheets/code.css"> 
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Ubuntu&display=swap" rel="stylesheet"> <!-- Links to goolgle fonts, font -->
+<link rel="shortcut icon" href="../../images/logo.png" /> <!-- Puts logo on tab -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+
+<title>Next:bit | Project Example</title>
+</head>
+
+<body>
+	<header>
+		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<h1 id="title">Next:Bit</h1>
+		<div id = "navbar_links">
+			<a class="text" href="../projects.html" >Projects</a>
+			<span>|</span>
+			<a class="text" href="../learn.html" >Learn</a>
+		</div>
+	</header>
+	
+	    <div class="box">
+			<div id="top" class="text">
+				<h1>Dice</h1>
+				<p>Shake your micro:bit to make random numbers.</p>
+			</div>
+	    </div>
+		
+		<div class="box" id="bottomImg">
+		  <img src="../../images/microbit_on_table.jpg" alt="Micro:bit with rubber bands, and alligator clips attached"> 
+	  	</div>
+	
+	<div id="bottomContainer">
+		<div id="contents" class="text">
+			<ul>
+				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Step 1: Make it</a></li>
+				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Step 2: Code it</a></li>
+				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Step 3: Improve it</a></li>
+			</ul>
+		</div>
+
+		<div id="instructions" class="text">
+			<pre><code class="prettyprint prettyprinted" style=""><span class="pln"></span><span class="com">// Do a scan and display the results in a menu</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> doScan</span><span class="pun">()</span><span class="pln">	</span><span class="pun">{</span><span class="pln">
+	</span><span class="typ">Pixl</span><span class="pun">.</span><span class="pln">menu</span><span class="pun">();</span><span class="pln"> </span><span class="com">// remove menu</span><span class="pln">
+	</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Scanning..."</span><span class="pun">);</span><span class="pln">
+	NRF</span><span class="pun">.</span><span class="pln">findDevices</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">devs</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">var</span><span class="pln"> menu </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="str">""</span><span class="pln"> </span><span class="pun">:</span><span class="pln"> </span><span class="pun">{</span><span class="pln">title</span><span class="pun">:</span><span class="str">"No Devices Found"</span><span class="pun">}</span><span class="pln"> </span><span class="pun">};</span><span class="pln">
+		</span><span class="com">// Add any device with a name beginning with 'BBC'</span><span class="pln">
+		devs</span><span class="pun">.</span><span class="pln">forEach</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">dev</span><span class="pun">.</span><span class="pln">name </span><span class="pun">&amp;&amp;</span><span class="pln"> dev</span><span class="pun">.</span><span class="pln">name</span><span class="pun">.</span><span class="pln">substr</span><span class="pun">(</span><span class="lit">0</span><span class="pun">,</span><span class="lit">3</span><span class="pun">)==</span><span class="str">"BBC"</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+				found </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">;</span><span class="pln">
+				menu</span><span class="pun">[</span><span class="str">""</span><span class="pun">].</span><span class="pln">title </span><span class="pun">=</span><span class="pln"> </span><span class="str">"-- Connect -- "</span><span class="pun">;</span><span class="pln">
+				menu</span><span class="pun">[</span><span class="pln">dev</span><span class="pun">.</span><span class="pln">name</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+					askForText</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">);</span><span class="pln">
+				</span><span class="pun">};</span><span class="pln">
+			</span><span class="pun">}</span><span class="pln">
+		</span><span class="pun">});</span><span class="pln">
+		</span><span class="com">// Add a menu option to rescan</span><span class="pln">
+		menu</span><span class="pun">[</span><span class="str">"-&gt; Scan Again"</span><span class="pun">]</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			doScan</span><span class="pun">();</span><span class="pln"> </span><span class="com">// scan</span><span class="pln">
+		</span><span class="pun">};</span><span class="pln">
+		</span><span class="com">// Show the menu</span><span class="pln">
+		</span><span class="typ">Pixl</span><span class="pun">.</span><span class="pln">menu</span><span class="pun">(</span><span class="pln">menu</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// Show a list of text to send to the micro:bit</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> askForText</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="typ">Pixl</span><span class="pun">.</span><span class="pln">menu</span><span class="pun">({</span><span class="pln">
+		</span><span class="str">""</span><span class="pun">:{</span><span class="pln">title</span><span class="pun">:</span><span class="str">"Which text?"</span><span class="pun">},</span><span class="pln">
+    	</span><span class="str">"Hello"</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> doConnect</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">,</span><span class="str">"Hello\n"</span><span class="pun">);</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+    	</span><span class="str">"Goodbye"</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> doConnect</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">,</span><span class="str">"Goodbye\n"</span><span class="pun">);</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+    	</span><span class="str">"A Test"</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> doConnect</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">,</span><span class="str">"A Test\n"</span><span class="pun">);</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+    	</span><span class="str">"-&gt; Scan Again"</span><span class="pun">:</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> doScan</span><span class="pun">();</span><span class="pln"> </span><span class="pun">},</span><span class="pln">
+	</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">/* Connect and send, max 20 characters. The micro:bit's
+UART isn't actually a standard Nordic UART so we can't
+use built-in libraries and have to do this manually. */</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> doConnect</span><span class="pun">(</span><span class="pln">dev</span><span class="pun">,</span><span class="pln"> text</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	</span><span class="typ">Pixl</span><span class="pun">.</span><span class="pln">menu</span><span class="pun">();</span><span class="pln"> </span><span class="com">// remove menu</span><span class="pln">
+	</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Connecting..."</span><span class="pun">);</span><span class="pln">
+	</span><span class="kwd">var</span><span class="pln"> device</span><span class="pun">;</span><span class="pln">
+	dev</span><span class="pun">.</span><span class="pln">gatt</span><span class="pun">.</span><span class="pln">connect</span><span class="pun">().</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">d</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Connected! Finding service"</span><span class="pun">);</span><span class="pln">
+	    device </span><span class="pun">=</span><span class="pln"> d</span><span class="pun">;</span><span class="pln">
+	    </span><span class="kwd">return</span><span class="pln"> d</span><span class="pun">.</span><span class="pln">getPrimaryService</span><span class="pun">(</span><span class="str">"6e400001-b5a3-f393-e0a9-e50e24dcca9e"</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}).</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">s</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Finding characteristic"</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> s</span><span class="pun">.</span><span class="pln">getCharacteristic</span><span class="pun">(</span><span class="str">"6e400003-b5a3-f393-e0a9-e50e24dcca9e"</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}).</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">c</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Sending"</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">return</span><span class="pln"> c</span><span class="pun">.</span><span class="pln">writeValue</span><span class="pun">(</span><span class="pln">text</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}).</span><span class="kwd">then</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		device</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">();</span><span class="pln">
+		</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">'Done!'</span><span class="pun">);</span><span class="pln">
+		setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			doScan</span><span class="pun">();</span><span class="pln">
+		</span><span class="pun">},</span><span class="pln"> </span><span class="lit">2000</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}).</span><span class="kwd">catch</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">(</span><span class="pln">err</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		</span><span class="kwd">print</span><span class="pun">(</span><span class="pln">err</span><span class="pun">);</span><span class="pln">    
+		</span><span class="typ">Terminal</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Error!"</span><span class="pun">);</span><span class="pln">
+		setTimeout</span><span class="pun">(</span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+			doScan</span><span class="pun">();</span><span class="pln">
+		</span><span class="pun">},</span><span class="pln"> </span><span class="lit">2000</span><span class="pun">);</span><span class="pln">
+		</span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">device</span><span class="pun">)</span><span class="pln"> device</span><span class="pun">.</span><span class="pln">disconnect</span><span class="pun">();</span><span class="pln">
+	</span><span class="pun">});</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// When initialised start scanning</span><span class="pln">
+</span><span class="kwd">function</span><span class="pln"> onInit</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+	doScan</span><span class="pun">();</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+onInit</span><span class="pun">();</span></code></pre>
+			
+		</div> <!--id="instruction"-->
+	</div> <!--id="bottomContainer"-->
+	
+	<footer>
+		<div><a href="#"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div id = "footer_links">
+			<a class="text" href="../about.html" >About</a>
+			<span>|</span>
+			<a class="text" href="../acknowledgments.html" >Acknowledgments</a>
+		</div>
+	</footer>
+	
+	<script>
+		window.onscroll = function() {myFunction()};
+
+		var contents = document.getElementById("contents");
+		var sticky = contents.offsetTop;
+
+		function myFunction() {
+		  if (window.pageYOffset >= sticky) {
+			contents.classList.add("sticky")
+		  } else {
+			contents.classList.remove("sticky");
+		  }
+		}
+		
+		function stepOne() {
+			document.getElementById("stepOneContents").style.color = "white";
+			document.getElementById("stepTwoContents").style.color = "black";
+			document.getElementById("stepThreeContents").style.color = "black";
+		}
+		
+		function stepTwo() {
+			document.getElementById("stepOneContents").style.color = "black";
+			document.getElementById("stepTwoContents").style.color = "white";
+			document.getElementById("stepThreeContents").style.color = "black";
+		}
+		
+		function stepThree() {
+			document.getElementById("stepOneContents").style.color = "black";
+			document.getElementById("stepTwoContents").style.color = "black";
+			document.getElementById("stepThreeContents").style.color = "white";
+		}
+	</script>
+</body>
+</html>
