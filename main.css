@@ -17,12 +17,12 @@ a:visited {
 /* ============= Top ============= */
 #top{
 	background-image: linear-gradient(to right, #017abc , #5cd6ff);
-	margin: 10px;
+	/*margin: 10px;*/
 }
 
 #top h1{
 	padding: 10px;
-	font-size: 10vw;
+	font-size: 12vw;
 }
 
 @media only screen and (min-width: 800px){ /* If in desktop mode */
