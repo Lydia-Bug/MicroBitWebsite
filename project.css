@@ -80,10 +80,6 @@
 }
 
 /* ============= Instructions ============= */
-#instructions img{
-	width: 100%;
-}
-
 #instructions .small{
 	width: 20%;
 }
@@ -137,4 +133,8 @@
 	  top: 0;
 	  width: 100%;
 	}
+}
+
+.error{
+	height: 70px;
 }
