@@ -4,7 +4,7 @@ code{
 
 pre 
 {
-	overflow-x:scroll; /* adds horizontal scroll bar to code
+	overflow-x: auto;/* adds horizontal scroll bar to code*/
   /*this makes the sizes of of tabs smaller, the defailt is 8 characters
 	So the code is readable, but can still be copy and pasted with tabs
 	This is only supported in Chrome, Firefox and Opera
