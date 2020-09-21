@@ -77,7 +77,11 @@
 			<pre>pip install -U -q -r requirements.txt</pre>
 			</code>
 			<p class="plainText">Click below to see a demonstration of this:</p>
-			<iframe src="https://www.youtube.com/embed/x_Vw__5VoTY"></iframe>
+
+			 <div id="video"> <!-- This div is to allow css to keep aspect ratio of video -->
+			   <iframe src="https://www.youtube.com/embed/x_Vw__5VoTY" frameborder="0" allowfullscreen ></iframe>
+			 </div>
+			
 			<h4>Setting up the bitio library</h4>
 			<p class="plainText">See <a href="https://github.com/whaleygeek/bitio#getting-started">this</a> to set up <a href="https://github.com/whaleygeek">David Whale</a>'s <a href="https://github.com/whaleygeek/bitio">bitio library</a>.</p>	
 			<h4>Setting up your micro:bit</h4>
@@ -89,86 +93,86 @@
 			
 			<p class="plainText">Let's review the code for <a href="https://github.com/musabkilic/MicroBike/blob/master/controller.py">controller.py</a> to understand how this works.</p>
 			<code>
-			<pre><span class="pl-k">import</span> <span class="pl-s1">microbit</span>
-<span class="pl-k">import</span> <span class="pl-s1">time</span>
-<span class="pl-k">from</span> <span class="pl-s1">pynput</span>.<span class="pl-s1">keyboard</span> <span class="pl-k">import</span> <span class="pl-v">Key</span>, <span class="pl-v">Controller</span></pre>	
+			<pre><span class="kn">import</span> <span class="pl-s1">microbit</span>
+<span class="kn">import</span> <span class="pl-s1">time</span>
+<span class="kn">from</span> <span class="pl-s1">pynput</span>.<span class="pl-s1">keyboard</span> <span class="kn">import</span> <span class="nb">Key</span>, <span class="nb">Controller</span></pre>	
 			</code>
 			<p class="plainText">We need to import the modules to use them later. We will use 3 modules; microbit module for controlling and reading data from the micro:bit, time module for waiting for a specific time step and pynput module to control the keyboard(and the game of course).</p>
 			<code>
-			<pre><span class="pl-c">#Function for Changing a Key</span>
-<span class="pl-k">def</span> <span class="pl-en"><span class="pl-token" >changeKeyState</span></span>(<span class="pl-s1">key</span>, <span class="pl-s1">value</span>):
-	<span class="pl-k">global</span> <span class="pl-s1">keyboard_keys</span>
+			<pre><span class="z">#Function for Changing a Key</span>
+<span class="kn">def</span> <span class="nf"><span class="pl-token" >changeKeyState</span></span>(<span class="pl-s1">key</span>, <span class="pl-s1">value</span>):
+	<span class="kn">global</span> <span class="pl-s1">keyboard_keys</span>
 
-	<span class="pl-c">#Change Only Neccessary</span>
-	<span class="pl-k">if</span> <span class="pl-s1">value</span><span class="pl-c1">!=</span><span class="pl-s1">keyboard_keys</span>.<span class="pl-en">get</span>(<span class="pl-s1">key</span>, <span class="pl-c1">False</span>):
-		<span class="pl-k">if</span> <span class="pl-s1">value</span>:
-			<span class="pl-s1">keyboard</span>.<span class="pl-en">press</span>(<span class="pl-s1">key</span>)
-		<span class="pl-k">else</span>:
-			<span class="pl-s1">keyboard</span>.<span class="pl-en">release</span>(<span class="pl-s1">key</span>)
+	<span class="z">#Change Only Neccessary</span>
+	<span class="kn">if</span> <span class="pl-s1">value</span><span class="pl-c1">!=</span><span class="pl-s1">keyboard_keys</span>.<span class="nf">get</span>(<span class="pl-s1">key</span>, <span class="pl-c1">False</span>):
+		<span class="kn">if</span> <span class="pl-s1">value</span>:
+			<span class="pl-s1">keyboard</span>.<span class="nf">press</span>(<span class="pl-s1">key</span>)
+		<span class="kn">else</span>:
+			<span class="pl-s1">keyboard</span>.<span class="nf">release</span>(<span class="pl-s1">key</span>)
 
 	<span class="pl-s1">keyboard_keys</span>[<span class="pl-s1">key</span>] <span class="pl-c1">=</span> <span class="pl-s1">value</span></pre>
 			</code>
 			<p class="plainText">changeKeyState is a function, it will help us to control the keyboard keys - for example if the handlebar goes left, it will press the left arrow key.</p>
 			<code>
-			<pre><span class="pl-c">#Specify Keyboard</span>
-<span class="pl-s1">keyboard</span> <span class="pl-c1">=</span> <span class="pl-v">Controller</span>()
-<span class="pl-c">#Set Accelerometer Values</span>
-<span class="pl-s1">previous_values</span> <span class="pl-c1">=</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">accelerometer</span>.<span class="pl-en">get_values</span>()
+			<pre><span class="z">#Specify Keyboard</span>
+<span class="pl-s1">keyboard</span> <span class="pl-c1">=</span> <span class="nb">Controller</span>()
+<span class="z">#Set Accelerometer Values</span>
+<span class="pl-s1">previous_values</span> <span class="pl-c1">=</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">accelerometer</span>.<span class="nf">get_values</span>()
 <span class="pl-s1">keyboard_keys</span> <span class="pl-c1">=</span> {}
-<span class="pl-c">#Set Images</span>
-<span class="pl-s1">stable</span> <span class="pl-c1">=</span> <span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>(<span class="pl-s">"00000:00000:99999:00000:00000"</span>)
-<span class="pl-s1">images</span> <span class="pl-c1">=</span> {<span class="pl-s">"N"</span>: <span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>.<span class="pl-v">ARROW_N</span>,
-		  <span class="pl-s">"NE"</span>: <span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>.<span class="pl-v">ARROW_NE</span>,
-		  <span class="pl-s">"NW"</span>: <span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>.<span class="pl-v">ARROW_NW</span>,
-		  <span class="pl-s">"E"</span>: <span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>.<span class="pl-v">ARROW_E</span>,
-		  <span class="pl-s">"W"</span>: <span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>.<span class="pl-v">ARROW_W</span>,
-		  <span class="pl-s">""</span>: <span class="pl-s1">stable</span>}</pre>
+<span class="z">#Set Images</span>
+<span class="pl-s1">stable</span> <span class="pl-c1">=</span> <span class="pl-s1">microbit</span>.<span class="nb">Image</span>(<span class="mi">"00000:00000:99999:00000:00000"</span>)
+<span class="pl-s1">images</span> <span class="pl-c1">=</span> {<span class="mi">"N"</span>: <span class="pl-s1">microbit</span>.<span class="nb">Image</span>.<span class="nb">ARROW_N</span>,
+		  <span class="mi">"NE"</span>: <span class="pl-s1">microbit</span>.<span class="nb">Image</span>.<span class="nb">ARROW_NE</span>,
+		  <span class="mi">"NW"</span>: <span class="pl-s1">microbit</span>.<span class="nb">Image</span>.<span class="nb">ARROW_NW</span>,
+		  <span class="mi">"E"</span>: <span class="pl-s1">microbit</span>.<span class="nb">Image</span>.<span class="nb">ARROW_E</span>,
+		  <span class="mi">"W"</span>: <span class="pl-s1">microbit</span>.<span class="nb">Image</span>.<span class="nb">ARROW_W</span>,
+		  <span class="mi">""</span>: <span class="pl-s1">stable</span>}</pre>
 			</code>
 			<p class="plainText">We will define some variables to use them later.</p>
 			<code>
-			<pre><span class="pl-c">#Wait for User to Press a Button</span>
-<span class="pl-k">while</span> <span class="pl-c1">1</span>:
-	<span class="pl-c">#Blink</span>
-	<span class="pl-s1">microbit</span>.<span class="pl-s1">display</span>.<span class="pl-en">show</span>(<span class="pl-s1">microbit</span>.<span class="pl-v">Image</span>.<span class="pl-v">ARROW_W</span>)
-	<span class="pl-s1">time</span>.<span class="pl-en">sleep</span>(<span class="pl-c1">0.5</span>)
-	<span class="pl-s1">microbit</span>.<span class="pl-s1">display</span>.<span class="pl-en">clear</span>()
+			<pre><span class="z">#Wait for User to Press a Button</span>
+<span class="kn">while</span> <span class="pl-c1">1</span>:
+	<span class="z">#Blink</span>
+	<span class="pl-s1">microbit</span>.<span class="pl-s1">display</span>.<span class="nf">show</span>(<span class="pl-s1">microbit</span>.<span class="nb">Image</span>.<span class="nb">ARROW_W</span>)
+	<span class="pl-s1">time</span>.<span class="nf">sleep</span>(<span class="pl-c1">0.5</span>)
+	<span class="pl-s1">microbit</span>.<span class="pl-s1">display</span>.<span class="nf">clear</span>()
 
-	<span class="pl-c">#Start the Program if a Button is Pressed</span>
-	<span class="pl-k">if</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">button_a</span>.<span class="pl-en">was_pressed</span>() <span class="pl-c1">or</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">button_b</span>.<span class="pl-en">was_pressed</span>():
-		<span class="pl-k">break</span>
-	<span class="pl-s1">time</span>.<span class="pl-en">sleep</span>(<span class="pl-c1">0.5</span>)</pre>
+	<span class="z">#Start the Program if a Button is Pressed</span>
+	<span class="kn">if</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">button_a</span>.<span class="nf">was_pressed</span>() <span class="pl-c1">or</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">button_b</span>.<span class="nf">was_pressed</span>():
+		<span class="kn">break</span>
+	<span class="pl-s1">time</span>.<span class="nf">sleep</span>(<span class="pl-c1">0.5</span>)</pre>
 			</code>
 			<p class="plainText">This is the first loop. It will keep blinking until the user presses the A or B button. After pressing the button controller will start running.</p>
 			<code>
-			<pre><span class="pl-c">#Start the Loop</span>
-<span class="pl-k">while</span> <span class="pl-c1">1</span>:
-	<span class="pl-c">#Get Accelerometer Values</span>
-	<span class="pl-s1">accelerometer_values</span> <span class="pl-c1">=</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">accelerometer</span>.<span class="pl-en">get_values</span>()
+			<pre><span class="z">#Start the Loop</span>
+<span class="kn">while</span> <span class="pl-c1">1</span>:
+	<span class="z">#Get Accelerometer Values</span>
+	<span class="pl-s1">accelerometer_values</span> <span class="pl-c1">=</span> <span class="pl-s1">microbit</span>.<span class="pl-s1">accelerometer</span>.<span class="nf">get_values</span>()
 	<span class="pl-s1">x</span>,<span class="pl-s1">y</span>,<span class="pl-s1">z</span> <span class="pl-c1">=</span> <span class="pl-s1">accelerometer_values</span>
 
-	<span class="pl-c">#Calculate Avarege Motion in X,Y,Z Directions</span>
-	<span class="pl-s1">motion</span> <span class="pl-c1">=</span> <span class="pl-en">sum</span>(<span class="pl-en">map</span>(<span class="pl-k">lambda</span> <span class="pl-s1">x</span>:<span class="pl-en">abs</span>(<span class="pl-s1">accelerometer_values</span>[<span class="pl-s1">x</span>]<span class="pl-c1">-</span><span class="pl-s1">previous_values</span>[<span class="pl-s1">x</span>]),<span class="pl-en">range</span>(<span class="pl-c1">3</span>)))<span class="pl-c1">/</span><span class="pl-c1">3</span></pre>
+	<span class="z">#Calculate Avarege Motion in X,Y,Z Directions</span>
+	<span class="pl-s1">motion</span> <span class="pl-c1">=</span> <span class="nf">sum</span>(<span class="nf">map</span>(<span class="kn">lambda</span> <span class="pl-s1">x</span>:<span class="nf">abs</span>(<span class="pl-s1">accelerometer_values</span>[<span class="pl-s1">x</span>]<span class="pl-c1">-</span><span class="pl-s1">previous_values</span>[<span class="pl-s1">x</span>]),<span class="nf">range</span>(<span class="pl-c1">3</span>)))<span class="pl-c1">/</span><span class="pl-c1">3</span></pre>
 			</code>
 			<p class="plainText">This is the main loop. We will start by getting required values and calculating the motion.</p>
 			<code>
-			<pre>	<span class="pl-c">#Change Direction</span>
-	<span class="pl-en"><span >changeKeyState</span></span>(<span class="pl-v">Key</span>.<span class="pl-s1">up</span>, <span class="pl-s1">y</span><span class="pl-c1">&gt;</span><span class="pl-c1">400</span>)
-	<span class="pl-en"><span>changeKeyState</span></span>(<span class="pl-v">Key</span>.<span class="pl-s1">right</span>, <span class="pl-s1">x</span><span class="pl-c1">&gt;</span><span class="pl-c1">60</span>)
-	<span class="pl-en"><span >changeKeyState</span></span>(<span class="pl-v">Key</span>.<span class="pl-s1">left</span>, <span class="pl-s1">x</span><span class="pl-c1">&lt;</span><span class="pl-c1">-</span><span class="pl-c1">60</span>)
-	<span class="pl-en"><span>changeKeyState</span></span>(<span class="pl-v">Key</span>.<span class="pl-s1">shift</span>, <span class="pl-s1">motion</span><span class="pl-c1">&gt;</span><span class="pl-c1">500</span>)
+			<pre>	<span class="z">#Change Direction</span>
+	<span class="nf"><span >changeKeyState</span></span>(<span class="nb">Key</span>.<span class="pl-s1">up</span>, <span class="pl-s1">y</span><span class="pl-c1">&gt;</span><span class="pl-c1">400</span>)
+	<span class="nf"><span>changeKeyState</span></span>(<span class="nb">Key</span>.<span class="pl-s1">right</span>, <span class="pl-s1">x</span><span class="pl-c1">&gt;</span><span class="pl-c1">60</span>)
+	<span class="nf"><span >changeKeyState</span></span>(<span class="nb">Key</span>.<span class="pl-s1">left</span>, <span class="pl-s1">x</span><span class="pl-c1">&lt;</span><span class="pl-c1">-</span><span class="pl-c1">60</span>)
+	<span class="nf"><span>changeKeyState</span></span>(<span class="nb">Key</span>.<span class="pl-s1">shift</span>, <span class="pl-s1">motion</span><span class="pl-c1">&gt;</span><span class="pl-c1">500</span>)
 
-	<span class="pl-c">#Set Direction to Show</span>
-	<span class="pl-s1">direction</span> <span class="pl-c1">=</span> <span class="pl-s">""</span>
-	<span class="pl-k">if</span> <span class="pl-s1">y</span><span class="pl-c1">&gt;</span><span class="pl-c1">400</span>:
-		<span class="pl-s1">direction</span> <span class="pl-c1">+=</span> <span class="pl-s">"N"</span>
-	<span class="pl-k">if</span> <span class="pl-s1">x</span><span class="pl-c1">&gt;</span><span class="pl-c1">60</span>:
-		<span class="pl-s1">direction</span> <span class="pl-c1">+=</span> <span class="pl-s">"E"</span>
-	<span class="pl-k">elif</span> <span class="pl-s1">x</span><span class="pl-c1">&lt;</span><span class="pl-c1">-</span><span class="pl-c1">60</span>:
-		<span class="pl-s1">direction</span> <span class="pl-c1">+=</span> <span class="pl-s">"W"</span>
+	<span class="z">#Set Direction to Show</span>
+	<span class="pl-s1">direction</span> <span class="pl-c1">=</span> <span class="mi">""</span>
+	<span class="kn">if</span> <span class="pl-s1">y</span><span class="pl-c1">&gt;</span><span class="pl-c1">400</span>:
+		<span class="pl-s1">direction</span> <span class="pl-c1">+=</span> <span class="mi">"N"</span>
+	<span class="kn">if</span> <span class="pl-s1">x</span><span class="pl-c1">&gt;</span><span class="pl-c1">60</span>:
+		<span class="pl-s1">direction</span> <span class="pl-c1">+=</span> <span class="mi">"E"</span>
+	<span class="kn">elif</span> <span class="pl-s1">x</span><span class="pl-c1">&lt;</span><span class="pl-c1">-</span><span class="pl-c1">60</span>:
+		<span class="pl-s1">direction</span> <span class="pl-c1">+=</span> <span class="mi">"W"</span>
 
-	<span class="pl-c">#Show the Direction</span>
-	<span class="pl-s1">microbit</span>.<span class="pl-s1">display</span>.<span class="pl-en">show</span>(<span class="pl-s1">images</span>[<span class="pl-s1">direction</span>])
-	<span class="pl-c">#Set Current Accelerometer Values to Previous</span>
+	<span class="z">#Show the Direction</span>
+	<span class="pl-s1">microbit</span>.<span class="pl-s1">display</span>.<span class="nf">show</span>(<span class="pl-s1">images</span>[<span class="pl-s1">direction</span>])
+	<span class="z">#Set Current Accelerometer Values to Previous</span>
   <span class="pl-s1">previous_values</span> <span class="pl-c1">=</span> <span class="pl-s1">accelerometer_values</span></pre>
 			</code>
 			<p class="plainText">Then we will use the information we get before to control the game. Keyboard keys will trigger when the microbit turns right or left higher than a specific value.</p>

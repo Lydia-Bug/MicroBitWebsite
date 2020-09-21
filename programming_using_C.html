@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 
-<title>Next:bit | Baseball Pitch Counter</title>
+<title>Next:bit | Programming using C/C++</title>
 </head>
 
 <body onload="whenLoaded()">
@@ -26,39 +26,45 @@
 	
 	    <div class="box">
 			<div id="top" class="text">
-				<h1>Baseball Pitch Counter</h1>
-				<p>An automated baseball pitch counter with the help of a micro:bit.</p>
+				<h1>Programming using C/C++ (Offline IDE Setup)</h1>
+				<p>C++ is a popular programming language. If you've had a go at programming the micro:bit in python, and javascrip this is a good next step</p>
 			</div>
 	    </div>
 		
 		<div class="box" id="bottomImg">
-		  <img id="thisImage" src="../../images/counter.jpg" alt="Micro:bit with number 5 displayed"> 
+		  <img id="thisImage" src="../../images/c_plus_plus.png" alt="MATLAB logo"> 
 	  	</div>
 	
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Ideation</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">The Process</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Code</a></li>
+				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Overview </a></li>
+				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Video Tutorial</a></li>
+				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Links</a></li>
 			</ul>
 		</div>
 
 		<div id="instructions" class="text">
-			<h3 id="stepOne">Ideation</h3>
-			<p class="plainText">As a baseball player you know that keeping a pitch count is vital to limiting a pitcher's pitches and keeping their arm healthy. The duty is often relegated to one of the players or coaches on the bench. However, as humans, we all make mistakes and they often forget to count a pitch and therefore making the pitch count inaccurate. That's why I decided to create an automatic pitch counter with my micro:bit. It uses an accelerometer to measure if a pitch is thrown and adds one to the amount of pitches thrown.</p>
+			<h3 id="stepOne">Overview </h3>
+			<p class="plainText">Guys, this tutorial is around BBC Microbit and programming the microbit using mbed C/C++ IDE but for this I have used the Yotta command line tool provided by mbed for building the code. This lets you explore many features of the microbit which are otherwise not accessible. </p>
+
+			<p class="plainText">The BBC micro:bit is a pocket-sized, programmable computer that allows anyone to get creative with technology. Made possible through a major partnership with 31 organisations, a micro:bit has been given to every 11 or 12 year old child in year 7 or equivalent across the UK, for free. </p>
 			
-			<h3 id="stepTwo">The Process</h3>
-			<p class="plainText">To start my project, I used the "on shake" block while coding my micro:bit, but I found that it was a little too sensitive and often counted slight arm movements as pitches.</p>
-			<p class="plainText">After deciding that using the accelerometer would be the best way to measure if a pitch was being thrown I had to find out the amount of force that is being exerted when throwing a pitch. After several test, I concluded that 3000mg would be a good baseline measurement to count any amount of force above it as a pitch. Common arm movements and shaking does not count as pitches because of the high baseline while even slower pitchers throw hard enough to count as a pitch.</p>
-			<p class="plainText">Another thing that I had to think about while creating my program was how I would be able to send a signal that included the number of pitches thrown from the micro:bit that measures force and amount of pitches to the coach's micro:bit so that he can see how many pitches thrown. A simple solution to that problem was to set them on the same radio group, max out the transmit power on the pitcher's micro:bit, and set the coach's micro:bit to receive the information. This way, the amount of pitches shown on the pitcher's micro:bit can also be seen on the coach's micro:bit for easy reference by the coach.</p>
-			<p class="plainText">Lastly, I wanted to create a little fun game for the pitch counter to use in addition to just counting the number of pitches thrown. The program also includes a game (with a strength meter) that measures the amount of force in gravitational metric units of force. This feature allows you to see how much quickly your arm is accelerating and it could be a fun way to challenge yourself to throw even harder.</p>
+			<p class="plainText">Source: <a href="https://os.mbed.com/platforms/Microbit/">Mbed</a></p>
+
+			<h3 id="stepTwo">Video Tutorial</h3>
 			
-			<h3 id="stepThree">Code</h3>
-			<img class="fullwidth" src="../../images/pitch_counter_code.png" alt="Picture of code for pitchers micro:bit" >
-			<p class="plainText">Pitch counter (pitchers micro:bit)</p>
-			<img class="fullwidth" src="../../images/pitch_counter_code_coach.png" alt="Picture of code for coaches micro:bit" >
-			<p class="plainText">Pitch counter receiver (coaches micro:bit)</p>
+			<div id="video"> <!-- This div is to allow css to keep aspect ratio of video -->
+			   <iframe src="https://www.youtube.com/embed/NAumLPLS5V8" frameborder="0" allowfullscreen ></iframe>
+			 </div>
+
+			<h3 id="stepThree">Links:</h3>
+			<ul class="plainText">
+				<li><a href="https://sourceforge.net/projects/srecord/?source=typ_redirect">Srecord</a></li>
+				<li><a href="https://os.mbed.com/handbook/Windows-serial-configuration">PC Driver (If Required)</a></li>
+				<li><a href="https://lancaster-university.github.io/microbit-docs/offline-toolchains/#installation-on-windows">Installation</a></li>
+				<li><a href="http://docs.yottabuild.org/#installing-on-windows">Yotta</a></li>
+			</ul>
 			
 		</div> <!--id="instruction"-->
 	</div> <!--id="bottomContainer"-->

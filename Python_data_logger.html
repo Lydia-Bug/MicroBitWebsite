@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 
-<title>Next:bit | Baseball Pitch Counter</title>
+<title>Next:bit | Python data logger</title>
 </head>
 
 <body onload="whenLoaded()">
@@ -26,40 +26,66 @@
 	
 	    <div class="box">
 			<div id="top" class="text">
-				<h1>Baseball Pitch Counter</h1>
-				<p>An automated baseball pitch counter with the help of a micro:bit.</p>
+				<h1>Python data logger</h1>
+				<p>Use micro:bit as a wireless data logger recording readings from its sensors.</p>
 			</div>
 	    </div>
 		
 		<div class="box" id="bottomImg">
-		  <img id="thisImage" src="../../images/counter.jpg" alt="Micro:bit with number 5 displayed"> 
+		  <img id="thisImage" src="../../images/accelerometer.png" alt="Picture of code and finished product"> 
 	  	</div>
 	
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Ideation</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">The Process</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Code</a></li>
+				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Story</a></li>
+				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Quick start</a></li>
+				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Usage</a></li>
+				<li id = "stepFourContents" class="plainText" onclick = "stepFour()"><a href = "#stepFour">Some patterns to try</a></li>
+				<li id = "stepFiveContents" class="plainText" onclick = "stepFive()"><a href = "#stepFive">The code explained</a></li>
+				<li id = "stepSixContents" class="plainText" onclick = "stepSix()"><a href = "#stepSix">Code</a></li>
 			</ul>
 		</div>
 
 		<div id="instructions" class="text">
-			<h3 id="stepOne">Ideation</h3>
-			<p class="plainText">As a baseball player you know that keeping a pitch count is vital to limiting a pitcher's pitches and keeping their arm healthy. The duty is often relegated to one of the players or coaches on the bench. However, as humans, we all make mistakes and they often forget to count a pitch and therefore making the pitch count inaccurate. That's why I decided to create an automatic pitch counter with my micro:bit. It uses an accelerometer to measure if a pitch is thrown and adds one to the amount of pitches thrown.</p>
+			<h3 id="stepOne">How it works</h3>
+			<p class="plainText">Flash the transmitter program onto a micro:bit with battery pack and either attach it to something that moves (like the inside of a salad spinner) or get ready to play catch with it. The program takes constant <a href="https://microbit.org/get-started/user-guide/features-in-depth/#accelerometer">accelerometer</a> readings of the forces in 3 dimensions (x, y and z axes) and transmits them by <a href="https://microbit.org/get-started/user-guide/features-in-depth/#radio">radio</a>.</p>
+			<p class="plainText">Connect the receiver micro:bit to a computer by USB and flash the logger program on to it using the <a href="https://codewith.mu/">Mu Python editor app</a>.</p>
+			<p class="plainText">This micro:bit receives the accelerometer data and send as serial data to your computer. Click on the ‘Plotter’ button in Mu and you should see graphs of the live data readings appear on the screen.</p>
+			<p class="plainText">Place the sensor micro:bit on each side and see how the readings in each axis change. Throw it in the air, spin it in a salad spinner: what do you see?</p>
+			<p class="plainText">Mu saves the numerical data as a CSV (comma separated values) file in your computer's home folder. Look in 'mu_code' and then the 'data_capture' folder.</p>
+			<p class="plainText">You can open the CSV file in a spreadsheet program to analyse. If you delete the second and third time columns, leaving only the first, you can plot the data on a scatter graph in your spreadsheet showing how the forces change over time.</p>
+
+			<img class="fullwidth" src="../../images/accelerometer.png" alt="Logged accelerometer data" >
 			
-			<h3 id="stepTwo">The Process</h3>
-			<p class="plainText">To start my project, I used the "on shake" block while coding my micro:bit, but I found that it was a little too sensitive and often counted slight arm movements as pitches.</p>
-			<p class="plainText">After deciding that using the accelerometer would be the best way to measure if a pitch was being thrown I had to find out the amount of force that is being exerted when throwing a pitch. After several test, I concluded that 3000mg would be a good baseline measurement to count any amount of force above it as a pitch. Common arm movements and shaking does not count as pitches because of the high baseline while even slower pitchers throw hard enough to count as a pitch.</p>
-			<p class="plainText">Another thing that I had to think about while creating my program was how I would be able to send a signal that included the number of pitches thrown from the micro:bit that measures force and amount of pitches to the coach's micro:bit so that he can see how many pitches thrown. A simple solution to that problem was to set them on the same radio group, max out the transmit power on the pitcher's micro:bit, and set the coach's micro:bit to receive the information. This way, the amount of pitches shown on the pitcher's micro:bit can also be seen on the coach's micro:bit for easy reference by the coach.</p>
-			<p class="plainText">Lastly, I wanted to create a little fun game for the pitch counter to use in addition to just counting the number of pitches thrown. The program also includes a game (with a strength meter) that measures the amount of force in gravitational metric units of force. This feature allows you to see how much quickly your arm is accelerating and it could be a fun way to challenge yourself to throw even harder.</p>
+			<h3 id="stepTwo">Code it</h3>
+			<h4>Sensor / transmitter</h4>
+
+			<code>
+			<pre>
+<span class="kn">from</span> microbit <span class="kn">import</span> *
+<span class="kn">import</span> radio
+radio.config(group=<span >99</span>)
+radio.on()
+			</pre>
+			</code>
+			<h4>Receiver / logger</h4>
+			<code>
+			<pre>
+<span class="kn">from</span> microbit <span class="kn">import</span> *
+<span class="kn">import</span > <span class="nb">radio
+radio.config</span>(group=<span class="mi"
+>99</span>)
+<span class="nb">radio.on()</span>
+
+<span class="kn">while</span> <span>True</span>:
+    message = <span class="nb">radio.receive()</span>
+    sleep(<span class="mi">20</span>)
+    print(message)</pre>
+			</code>
 			
-			<h3 id="stepThree">Code</h3>
-			<img class="fullwidth" src="../../images/pitch_counter_code.png" alt="Picture of code for pitchers micro:bit" >
-			<p class="plainText">Pitch counter (pitchers micro:bit)</p>
-			<img class="fullwidth" src="../../images/pitch_counter_code_coach.png" alt="Picture of code for coaches micro:bit" >
-			<p class="plainText">Pitch counter receiver (coaches micro:bit)</p>
-			
+			<h3 id="stepThree">Improve it</h3>
+			<p class="plainText">Record other micro:bit sensor readings remotely this way, such as temperature, light or magnetic compass readings.</p>Conduct a physics experiment into the forces acting on a micro:bit as it spins in a salad spinner (centrifuge). Do you see what you expect? (Bear in mind that the accelerometer on the micro:bit can only read forces up to 2g, twice the force of the Earth’s gravity – if you spin it fast it may experience forces that are too large for it to register.)</p>
 		</div> <!--id="instruction"-->
 	</div> <!--id="bottomContainer"-->
 	
