@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../styleSheets/main.css"> 
@@ -38,10 +38,10 @@
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">What is MATLAB and Simulink</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Simulink Support Package</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Simulink Lessons and Examples for BBC micro:bit</a></li>
-				<li id = "stepFourContents" class="plainText" onclick = "stepFour()"><a href = "#stepFour">External Links</a></li>
+				<li id = "stepOneContents" class="plainText"><a href = "#stepOne" onclick = "stepOne()">What is MATLAB and Simulink</a></li>
+				<li id = "stepTwoContents" class="plainText"><a href = "#stepTwo" onclick = "stepTwo()">Simulink Support Package</a></li>
+				<li id = "stepThreeContents" class="plainText"><a href = "#stepThree" onclick = "stepThree()">Simulink Lessons and Examples for BBC micro:bit</a></li>
+				<li id = "stepFourContents" class="plainText"><a href = "#stepFour" onclick = "stepFour()">External Links</a></li>
 			</ul>
 		</div>
 
@@ -49,7 +49,7 @@
 			<h3 id="stepOne">What is MATLAB and Simulink</h3>
 			<p class="plainText">MATLAB (an abbreviation of "matrix laboratory") is a multi-paradigm numerical computing environment and proprietary programming language developed by MathWorks. MATLAB allows matrix manipulations, plotting of functions and data, implementation of algorithms, creation of user interfaces, and interfacing with programs written in other languages. </p>
 
-			<p class="plainText">Simulink is a MATLAB-based graphical programming environment for modeling, simulating and analyzing multidomain dynamical systems. Its primary interface is a graphical block diagramming tool and a customizable set of block libraries. It offers tight integration with the rest of the MATLAB environment and can either drive MATLAB or be scripted from it. Simulink is widely used in automatic control and digital signal processing for multidomain simulation and model-based design.</p>
+			<p class="plainText">Simulink is a MATLAB-based graphical programming environment for modelling, simulating and analysing  multidomain dynamical systems. Its primary interface is a graphical block diagramming tool and a customizable set of block libraries. It offers tight integration with the rest of the MATLAB environment and can either drive MATLAB or be scripted from it. Simulink is widely used in automatic control and digital signal processing for multidomain simulation and model-based design.</p>
 			
 			<h3 id="stepTwo">Simulink Support Package</h3>
 			<p class="plainText">The Simulink Support Package for BBC micro:bit allows users to work with the micro:bit and at the same time learn about Simulink, a professional piece of software used across a wide range of industries.</p>
@@ -68,21 +68,25 @@
 			<p class="plainText">Course Outline:</p>
 			<ol class="plainText">
 				<li>Flashing LED display</li>
-					<p class="plainText">Building a Simulink model</p>
-					<p class="plainText">Displaying a happy face on the micro:bit board</p>
-					<p class="plainText">Animating a Heartbeat</p>
-					<p class="plainText">Animating Fireworks</p>
+				<ul>
+					<li>Building a Simulink model</li>
+					<li>Displaying a happy face on the micro:bit board</li>
+					<li>Animating a Heartbeat</li>
+					<li>Animating Fireworks</li>
+				</ul>
 				<li>Implementing a direction indicator for a bicycle</li>
-					<p class="plainText">Using the built-in button on the micro:bit board</p>
-					<p class="plainText">Displaying the left and right indicator</p>
-					<p class="plainText">Running micro:bit models in external mode</p>
-					<p class="plainText">Triggering the indicator by pressing the button</p>
-					<p class="plainText">Viewing the accelerometer data</p>
+					<ul>
+						<li>Using the built-in button on the micro:bit board</li>
+						<li>Displaying the left and right indicator</li>
+						<li>Running micro:bit models in external mode</li>
+						<li>Triggering the indicator by pressing the button</li>
+						<li>Viewing the accelerometer data</li>
+					</ul>
 				<li>Creating your own Simulink library</li>
 			</ol>
 			<p class="plainText">Learning Outcomes:</p>
 			<ul class="plainText">
-				<li>Learning the basic concepts of Simulink as a modeling language</li>
+				<li>Learning the basic concepts of Simulink as a modelling language</li>
 				<li>Signal input and output</li>
 				<li>Abstraction (subsystem)</li>
 				<li>Multiplexing</li>
@@ -98,7 +102,7 @@
 	</div> <!--id="bottomContainer"-->
 	
 	<footer>
-		<div><a href="#"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
 		<div id = "footer_links">
 			<a class="text" href="../about.html" >About</a>
 			<span>|</span>

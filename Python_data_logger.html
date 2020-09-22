@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../styleSheets/main.css"> 
@@ -38,12 +38,9 @@
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Story</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Quick start</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Usage</a></li>
-				<li id = "stepFourContents" class="plainText" onclick = "stepFour()"><a href = "#stepFour">Some patterns to try</a></li>
-				<li id = "stepFiveContents" class="plainText" onclick = "stepFive()"><a href = "#stepFive">The code explained</a></li>
-				<li id = "stepSixContents" class="plainText" onclick = "stepSix()"><a href = "#stepSix">Code</a></li>
+				<li id = "stepOneContents" class="plainText"><a href = "#stepOne" onclick = "stepOne()">How it works</a></li>
+				<li id = "stepTwoContents" class="plainText"><a href = "#stepTwo" onclick = "stepTwo()">Code it</a></li>
+				<li id = "stepThreeContents" class="plainText"><a href = "#stepThree" onclick = "stepThree()">Improve it</a></li>
 			</ul>
 		</div>
 
@@ -61,18 +58,13 @@
 			<h3 id="stepTwo">Code it</h3>
 			<h4>Sensor / transmitter</h4>
 
-			<code>
-			<pre>
-<span class="kn">from</span> microbit <span class="kn">import</span> *
+			<pre><code><span class="kn">from</span> microbit <span class="kn">import</span> *
 <span class="kn">import</span> radio
 radio.config(group=<span >99</span>)
-radio.on()
-			</pre>
-			</code>
+radio.on()</code></pre>
 			<h4>Receiver / logger</h4>
-			<code>
-			<pre>
-<span class="kn">from</span> microbit <span class="kn">import</span> *
+			
+			<pre><code><span class="kn">from</span> microbit <span class="kn">import</span> *
 <span class="kn">import</span > <span class="nb">radio
 radio.config</span>(group=<span class="mi"
 >99</span>)
@@ -81,8 +73,7 @@ radio.config</span>(group=<span class="mi"
 <span class="kn">while</span> <span>True</span>:
     message = <span class="nb">radio.receive()</span>
     sleep(<span class="mi">20</span>)
-    print(message)</pre>
-			</code>
+    print(message)</code></pre>
 			
 			<h3 id="stepThree">Improve it</h3>
 			<p class="plainText">Record other micro:bit sensor readings remotely this way, such as temperature, light or magnetic compass readings. Conduct a physics experiment into the forces acting on a micro:bit as it spins in a salad spinner (centrifuge). Do you see what you expect? (Bear in mind that the accelerometer on the micro:bit can only read forces up to 2g, twice the force of the Earth’s gravity – if you spin it fast it may experience forces that are too large for it to register.)</p>
@@ -90,7 +81,7 @@ radio.config</span>(group=<span class="mi"
 	</div> <!--id="bottomContainer"-->
 	
 	<footer>
-		<div><a href="#"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
 		<div id = "footer_links">
 			<a class="text" href="../about.html" >About</a>
 			<span>|</span>

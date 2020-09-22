@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="styleSheets/index.css"> 
@@ -11,7 +11,7 @@
 <title>Next:bit</title>
 </head>
 
-<body>
+<body onload="whenLoaded()">
 	<header>
 		<div><a href="#"><img src="images/logo.png" class="logo" alt="logo"></a></div>
 		<h1 id="title">Next:Bit</h1>
@@ -53,27 +53,30 @@
 		</div>
 	</footer>
 	
-	
+	<script> 
+	//This code will set the height of the top div, to the height of the text inside it. This is so the image is always the same size as the text, not larger
+	var topElem = document.getElementById('toptext'); //finds element of toptext
+	setHeight();
+
+	function whenLoaded(){ //when page is loaded
+		setHeight();
+	}
+		
+	window.onresize = function(event) { //does function everytime window resizes
+		setHeight();
+	};
+		
+	function setHeight(){
+		var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height'); //finds height of toptext
+		topHeight = topHeight.replace("px",""); //turns 100px into 100, an int which we can change
+		topHeight=+topHeight; 
+		var n = topHeight;
+		topHeight=n+20+'px'; //adds 20px to value "adds padding"
+		
+		document.getElementById('top').style.height = topHeight; //sets the height of the top div to the height of the text
+	}	
+	</script> 
 </body>
 </html>
 
 
-<script> 
-//This code will set the height of the top div, to the height of the text inside it. This is so the image is always the same size as the text, not larger
-var topElem = document.getElementById('toptext'); //finds element of toptext
-setHeight();
-
-window.onresize = function(event) { //does function everytime window resizes
-	setHeight();
-};
-	
-function setHeight(){
-	var topHeight = window.getComputedStyle(topElem, null).getPropertyValue('height'); //finds height of toptext
-	topHeight = topHeight.replace("px",""); //turns 100px into 100, an int which we can change
-	topHeight=+topHeight; 
-	var n = topHeight;
-	topHeight=n+20+'px'; //adds 20px to value "adds padding"
-	
-	document.getElementById('top').style.height = topHeight; //sets the height of the top div to the height of the text
-}	
-</script> 

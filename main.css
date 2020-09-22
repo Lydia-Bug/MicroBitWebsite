@@ -62,7 +62,7 @@ header img{
 }
 
 #navbar_links{
-	font-size: 35px;
+	font-size: 50px;
 	float: left;
 	margin-left: 0px;
 }
@@ -73,16 +73,12 @@ header img{
 		float: right;
 	}
 }
+/*
 @media only screen and (min-width: 660px){
 	#navbar_links{
 		margin-left: 20px;
 	}
-}
-@media only screen and (min-width: 556px){
-	#navbar_links{
-	font-size: 50px;
-	}
-}
+}*/
 
 /* ============= Footer ============= */	
 footer{

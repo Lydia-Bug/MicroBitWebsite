@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../styleSheets/main.css"> 
@@ -38,9 +38,9 @@
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Ideation</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">The Process</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Code</a></li>
+				<li id = "stepOneContents" class="plainText" ><a href = "#stepOne" onclick = "stepOne()">Ideation</a></li>
+				<li id = "stepTwoContents" class="plainText"><a href = "#stepTwo" onclick = "stepTwo()">The Process</a></li>
+				<li id = "stepThreeContents" class="plainText"><a href = "#stepThree" onclick = "stepThree()">Code</a></li>
 			</ul>
 		</div>
 
@@ -50,21 +50,25 @@
 			
 			<h3 id="stepTwo">The Process</h3>
 			<p class="plainText">To start my project, I used the "on shake" block while coding my micro:bit, but I found that it was a little too sensitive and often counted slight arm movements as pitches.</p>
-			<p class="plainText">After deciding that using the accelerometer would be the best way to measure if a pitch was being thrown I had to find out the amount of force that is being exerted when throwing a pitch. After several test, I concluded that 3000mg would be a good baseline measurement to count any amount of force above it as a pitch. Common arm movements and shaking does not count as pitches because of the high baseline while even slower pitchers throw hard enough to count as a pitch.</p>
+			<p class="plainText">After deciding that using the accelerometer would be the best way to measure if a pitch was being thrown, I had to find out the amount of force that is being exerted when throwing a pitch. After several test, I concluded that 3000mg would be a good baseline measurement to count any amount of force above it as a pitch. Common arm movements and shaking does not count as pitches because of the high baseline while even slower pitchers throw hard enough to count as a pitch.</p>
 			<p class="plainText">Another thing that I had to think about while creating my program was how I would be able to send a signal that included the number of pitches thrown from the micro:bit that measures force and amount of pitches to the coach's micro:bit so that he can see how many pitches thrown. A simple solution to that problem was to set them on the same radio group, max out the transmit power on the pitcher's micro:bit, and set the coach's micro:bit to receive the information. This way, the amount of pitches shown on the pitcher's micro:bit can also be seen on the coach's micro:bit for easy reference by the coach.</p>
 			<p class="plainText">Lastly, I wanted to create a little fun game for the pitch counter to use in addition to just counting the number of pitches thrown. The program also includes a game (with a strength meter) that measures the amount of force in gravitational metric units of force. This feature allows you to see how much quickly your arm is accelerating and it could be a fun way to challenge yourself to throw even harder.</p>
 			
 			<h3 id="stepThree">Code</h3>
-			<img class="fullwidth" src="../../images/pitch_counter_code.png" alt="Picture of code for pitchers micro:bit" >
+			<div class="scrollbar">
+				<img class="fullwidthscroll" src="../../images/pitch_counter_code.png" alt="Picture of code for pitchers micro:bit" >
+			</div>
 			<p class="plainText">Pitch counter (pitchers micro:bit)</p>
-			<img class="fullwidth" src="../../images/pitch_counter_code_coach.png" alt="Picture of code for coaches micro:bit" >
+			<div class="scrollbar">
+				<img class="fullwidthscroll" src="../../images/pitch_counter_code_coach.png" alt="Picture of code for coaches micro:bit" >
+			</div>
 			<p class="plainText">Pitch counter receiver (coaches micro:bit)</p>
 			
 		</div> <!--id="instruction"-->
 	</div> <!--id="bottomContainer"-->
 	
 	<footer>
-		<div><a href="#"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
 		<div id = "footer_links">
 			<a class="text" href="../about.html" >About</a>
 			<span>|</span>

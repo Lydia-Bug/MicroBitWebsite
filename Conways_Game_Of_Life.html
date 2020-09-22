@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../styleSheets/main.css"> 
@@ -38,12 +38,12 @@
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">Story</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Quick start</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Usage</a></li>
-				<li id = "stepFourContents" class="plainText" onclick = "stepFour()"><a href = "#stepFour">Some patterns to try</a></li>
-				<li id = "stepFiveContents" class="plainText" onclick = "stepFive()"><a href = "#stepFive">The code explained</a></li>
-				<li id = "stepSixContents" class="plainText" onclick = "stepSix()"><a href = "#stepSix">Code</a></li>
+				<li id = "stepOneContents" class="plainText"><a href = "#stepOne" onclick = "stepOne()">Story</a></li>
+				<li id = "stepTwoContents" class="plainText"><a href = "#stepTwo" onclick = "stepTwo()">Quick start</a></li>
+				<li id = "stepThreeContents" class="plainText"><a href = "#stepThree" onclick = "stepThree()">Usage</a></li>
+				<li id = "stepFourContents" class="plainText"><a href = "#stepFour" onclick = "stepFour()">Some patterns to try</a></li>
+				<li id = "stepFiveContents" class="plainText"><a href = "#stepFive" onclick = "stepFive()">The code explained</a></li>
+				<li id = "stepSixContents" class="plainText"><a href = "#stepSix" onclick = "stepSix()">Code</a></li>
 			</ul>
 		</div>
 
@@ -56,7 +56,7 @@
 			<p class="plainText">Any live cell with more than three live neighbours dies, as if by overpopulation.</p>
 			<p class="plainText">The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one). The rules continue to be applied repeatedly to create further generations.</p>
 			<p class="plainText">Extracted from the <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">Wikipedia page about Conway's Game of Life.</a></p> <!-- traget blank means link will open in another tag -->
-			<p class="plainText">In this implementation the universe is a toroidal 5x5 grid, this means the top 5 cells are adjacent with the bottom 5 cells, the same for the left and right cells. With a so small space available some patterns acts in a strange way, we start exploring it.</p>
+			<p class="plainText">In this implementation the universe is a toroidal 5x5 grid, this means the top 5 cells are adjacent with the bottom 5 cells, the same for the left and right cells. With a so small space available some patterns act in a strange way, we start exploring it.</p>
 			
 			
 			<h3 id="stepTwo">Quick start</h3>
@@ -77,25 +77,25 @@
 			</ul>
 			
 			<h3 id="stepFour">Some patterns to try</h3>
-			<img class="small" src="../../images/GOL_blinker.png">
+			<img class="small" src="../../images/GOL_blinker.png" alt="three pixels in a vertical line">
 			<p class="plainText">Blinker: an oscillator with period 2.</p>
-			<img class="small" src="../../images/GOL_toad.png">
+			<img class="small" src="../../images/GOL_toad.png" alt="two horizontal lines of three pixels on top of each other, offset by one pixel">
 			<p class="plainText">Toad: another oscillator with period 2</p>
-			<img class="small" src="../../images/GOL_glider.png">
+			<img class="small" src="../../images/GOL_glider.png" alt="line of three horizontal pixels, one pixel on top to the right, and one in the middle two pixcels up">
 			<p class="plainText">Glider: a spaceship.</p>
-			<img class="small" src="../../images/GOL_lineanddot.png">
+			<img class="small" src="../../images/GOL_lineanddot.png" alt="five horizontal pixels and one pixels in the middle two pixcels up">
 			<p class="plainText">Line and dot: an oscillator with period 4.</p>
 		
 			<h3 id="stepFive">The code explained</h3>
-			<p class="plainText">At rows 3 an 5 there are the 2 "draw" functions: draw_universe and draw_cursor. These functions sets the led luminosity at various levels, 0 for an empty cell, 9 for a populated cell, 4 for and empty cell with the cursor on it and 6 for a populated cell with a cursor on it.</p>
+			<p class="plainText">At rows 3 and 5 there are the 2 "draw" functions: draw_universe and draw_cursor. These functions sets the led luminosity at various levels, 0 for an empty cell, 9 for a populated cell, 4 for and empty cell with the cursor on it and 6 for a populated cell with a cursor on it.</p>
 			<p class="plainText">The core is the function evolve (row 15), in this function there are all the rules defined on top of this page.</p>
 			<p class="plainText">At rows 33 and 39 there are 2 support function for evolve: cell_state and count_neighbours. In count_neighbours at row 43 there's the trick for the toroidal universe: the module operator (%). The same trick is in the row 73 and following.</p>
 			<p class="plainText">At row 59 there's the main loop, it is basically divided in 2 parts: the RUN mode and the CONFIG mode.</p>
 			<p class="plainText">The interesting thing here is the accelerometer managing at row 71. The accelerometer values (x, y, z) goes from -1024 to +1024, when it is flat the x and the y values are both (more or less) 0. In this case a grace zone of 200 is used to avoid unwanted cursor movements.</p>
 			
 			<h3 id="stepSix">Code</h3>
-			<code>
-			<pre><span id="line-1"><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+			
+			<pre><code><span id="line-1"><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span id="line-2">
 </span><span id="line-3"><span class="k">def</span> <span class="nf">draw_cursor</span><span class="p">(</span><span class="n">universe</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 </span><span id="line-4">    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"CONFIG"</span><span class="p">:</span>
@@ -189,14 +189,14 @@
 </span><span id="line-92">    <span class="n">draw_universe</span><span class="p">(</span> <span class="n">current_universe</span> <span class="p">)</span>
 </span><span id="line-93">    <span class="n">draw_cursor</span><span class="p">(</span><span class="n">current_universe</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">cursor_x</span><span class="p">,</span> <span class="n">cursor_y</span><span class="p">)</span> 
 </span><span id="line-94">    <span class="n">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
-</span></pre>
-			</code>
+</span></code></pre>
+			
 			
 		</div> <!--id="instruction"-->
 	</div> <!--id="bottomContainer"-->
 	
 	<footer>
-		<div><a href="#"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
 		<div id = "footer_links">
 			<a class="text" href="../about.html" >About</a>
 			<span>|</span>

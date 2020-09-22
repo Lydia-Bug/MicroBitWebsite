@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" type="text/css" href="../../styleSheets/main.css"> 
@@ -38,12 +38,12 @@
 	<div id="bottomContainer">
 		<div id="contents" class="text">
 			<ul>
-				<li id = "stepOneContents" class="plainText" onclick = "stepOne()"><a href = "#stepOne">micro:bit Bluetooth</a></li>
-				<li id = "stepTwoContents" class="plainText" onclick = "stepTwo()"><a href = "#stepTwo">Configuring Radio</a></li>
-				<li id = "stepThreeContents" class="plainText" onclick = "stepThree()"><a href = "#stepThree">Sending Data</a></li>
-				<li id = "stepFourContents" class="plainText" onclick = "stepFour()"><a href = "#stepFour">Receiving Data</a></li>
-				<li id = "stepFiveContents" class="plainText" onclick = "stepFive()"><a href = "#stepFive">The Code</a></li>
-				<li id = "stepSixContents" class="plainText" onclick = "stepSix()"><a href = "#stepSix">Radio Buffers</a></li>
+				<li id = "stepOneContents" class="plainText"><a href = "#stepOne" onclick = "stepOne()">micro:bit Bluetooth</a></li>
+				<li id = "stepTwoContents" class="plainText"><a href = "#stepTwo" onclick = "stepTwo()">Configuring Radio</a></li>
+				<li id = "stepThreeContents" class="plainText"><a href = "#stepThree" onclick = "stepThree()">Sending Data</a></li>
+				<li id = "stepFourContents" class="plainText"><a href = "#stepFour" onclick = "stepFour()">Receiving Data</a></li>
+				<li id = "stepFiveContents" class="plainText"><a href = "#stepFive" onclick = "stepFive()">The Code</a></li>
+				<li id = "stepSixContents" class="plainText"><a href = "#stepSix" onclick = "stepSix()">Radio Buffers</a></li>
 			</ul>
 		</div>
 
@@ -63,28 +63,26 @@
 
 			<h3 id="stepTwo">Configuring Radio</h3>
 			<p class="plainText">The first step in radio communication is choosing a group to use. Groups can be thought of as rooms. You and other friends can stand in one room and talk to each other, but you can’t talk to anyone located in different rooms. If you want to talk to someone in a different room, you need to leave the room you are standing in and go into their room.</p>
-			<p class="plainText">So let’s find the jigsaw piece that configures our group!</p>
+			<p class="plainText">So, let’s find the jigsaw piece that configures our group!</p>
 
-			<img class="fullwidth" src="../../images/on_start.png" alt="'on start' 'radio set group 1'" >
+			<img class="medium"  src="../../images/on_start.png" alt="'on start' 'radio set group 1'" >
 
 			<p class="plainText">We put this code in the piece “on start” so that as soon as the micro:bit starts, it sets our group to 1. This means that we can talk and listen to any device who is also in group 1.</p>
 			
 			<h3 id="stepThree">Sending Data</h3>
 			<p class="plainText">Sending data to devices connected to our group is done using a single jigsaw piece. However, there are different pieces we can choose and the one you need depends on what you’re sending.</p>
-			<p class="plainText">If you are sending a number, you will need to use the piece “radio send number”. If you are sending a string (a word or sentence), then you need to use the piece “radio send string”. In our case, we will be sending the current temperature. Since temperature is a number we will use the piece “radio send number”.</p>
+			<p class="plainText">If you are sending a number, you will need to use the piece “radio send number”. If you are sending a string (a word or sentence), then you need to use the piece “radio send string”. In our case, we will be sending the current temperature. Since temperature is a number, we will use the piece “radio send number”.</p>
 			<p class="plainText">When do we send this message? In this case, we are going to send the temperature when the user presses button A, so we start by using the piece “on button A pressed” and then placing the “radio send number” command inside this piece as shown below:</p>
 
-			<img class="fullwidth" src="../../images/button_a_pressed.png" alt="when 'button A pressed' 'radio send number: temperature'" >
+			<img class="medium"  src="../../images/button_a_pressed.png" alt="when 'button A pressed' 'radio send number: temperature'" >
 
 			<h3 id="stepFour">Receiving Data</h3>
 			<p class="plainText">Like sending data, receiving data is very easy to do with the piece “on radio received”. Just like sending data, you need to use the correct received data piece, because one is for numbers and the other is for strings.</p>
-			<p class="plainText">Since we are transmitting temperature as a number we need our micro:bit to receive a number. When we receive the number, we can print it to the display so we can visually read the current temperature. Note that receiving data is an event, so it does not lie inside a forever loop nor is it connected to anything. As soon as data is received, the code connected to the received piece will immediately run.</p>
-			
-			<img class="fullwidth" src="../../images/on_radio_received.png" alt="'on radio received receivedNumber' 'show number receivedNumber'" >
-
+			<p class="plainText">Since we are transmitting temperature as a number, we need our micro:bit to receive a number. When we receive the number, we can print it to the display so we can visually read the current temperature. Note that receiving data is an event, so it does not lie inside a forever loop nor is it connected to anything. As soon as data is received, the code connected to the received piece will immediately run.</p>
+			<img class="medium" src="../../images/on_radio_received.png" alt="'on radio received receivedNumber' 'show number receivedNumber'" >
 			<h3 id="stepFive">The Code</h3>
 			
-			<img class="fullwidth" src="../../images/full_code.png" alt="all code from before together" >
+			<img class="medium"  src="../../images/full_code.png" alt="all code from before together" >
 
 			<h3 id="stepSix">Radio Buffers</h3>
 			<p class="plainText">As we can see here, pressing the A button on one micro:bit sends the temperature to another micro:bit. What would happen if we sent data again while the second micro:bit was still processing the first bit of data sent? As it turns out, the micro:bit has a buffer used to store incoming messages, meaning that even if the micro:bit is doing something else, the radio data is not lost. Test this out by pressing the A button three times quickly and you will see the temperature appear 3 times on the second micro:bit.</p>
@@ -93,7 +91,7 @@
 	</div> <!--id="bottomContainer"-->
 	
 	<footer>
-		<div><a href="#"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
 		<div id = "footer_links">
 			<a class="text" href="../about.html" >About</a>
 			<span>|</span>

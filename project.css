@@ -84,6 +84,12 @@
 /* ============= Instructions ============= */
 #instructions .small{
 	width: 20%;
+	min-width: 200px;
+}
+
+.medium{
+	width: 40%;
+	min-width: 350px;
 }
 
 #instructions a{
@@ -157,6 +163,23 @@ iframe{
 	left:0;
 	width:100%;
 	height:100%;
+}
+
+.scrollbar{
+	width: 100%;
+	
+	overflow-x: scroll; 
+	white-space: nowrap;
+}
+
+.fullwidthscrollsmall{
+	width: 100%;
+	max-width: 500px;   
+}
+
+.fullwidthscroll{
+	width: 100%;
+	min-width: 800px;   
 }
 
 .fullwidth{
