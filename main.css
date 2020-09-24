@@ -35,7 +35,7 @@ a:visited {
 /* ============= Text ============= */
 .text{
 	font-family: 'Ubuntu', sans-serif;
-	font-color: black;
+	color: black;
 }
 
 /* ============= Navbar and Footer ============= */

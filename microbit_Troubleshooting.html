@@ -15,7 +15,7 @@
 
 <body onload="whenLoaded()">
 	<header>
-		<div><a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
+		<div><a href<a href="../../index.html"><img src="../../images/logo.png" class="logo" alt="logo"></a></div>
 		<h1 id="title">Next:Bit</h1>
 		<div id = "navbar_links">
 			<a class="text" href="../projects.html" >Projects</a>
@@ -47,7 +47,7 @@
 
 		<div id="instructions" class="text">
 			<h3 id="stepOne">micro:bit Error Codes</h3>
-			<p class="plainText">micro:bit has a <a href="https://support.microbit.org/support/solutions/folders/19000163393">Hardware Errors Page</a> to help when your micro:bit displays the following error codes:</p>
+			<p class="plainText">micro:bit has a <a target="_blank" href="https://support.microbit.org/support/solutions/folders/19000163393">Hardware Errors Page</a> to help when your micro:bit displays the following error codes:</p>
 			<h4 class="plainText">010</h4>
 			<h4 class="plainText">Description</h4>
 			<p class="plainText">The micro:bit's I2C bus is not working, the device might be physically damaged.</p>
@@ -91,7 +91,7 @@
 
 			<h3 id="stepTwo">micro:bit Other</h3>
 			<h4>The System LED Does Not Light Up When Powered from Batteries</h4>
-			<p class="plainText"><a href="https://support.microbit.org/support/solutions/articles/19000013655-the-system-led-does-not-light-up-when-powered-from-batteries">According to micro:bit</a>, this is normal behaviour. The yellow system LED on the back of the micro:bit will not light up when only running from batteries.</p>
+			<p class="plainText"><a target="_blank" href="https://support.microbit.org/support/solutions/articles/19000013655-the-system-led-does-not-light-up-when-powered-from-batteries">According to micro:bit</a>, this is normal behaviour. The yellow system LED on the back of the micro:bit will not light up when only running from batteries.</p>
 			<p class="plainText">The System LED is powered from the KL26 interface processor (the chip that manages the USB interface on the micro:bit), and this interface processor only powers up when the micro:bit is powered from the USB. When powered from batteries, the KL26 interface processor does not power up, and the System LED will not light up.</p>
 			<p class="plainText">If you think there is an issue with the micro:bit, try the following:</p>
 			<ol class="plainText">
@@ -102,79 +102,79 @@
 			</ol>
 			<p class="plainText">If none of these steps help to solve your problem, it looks like your micro:bit might have developed a fault. You should get in contact with the company that you bought it from and check what their returns procedure is.</p>
 			<h4>Description</h4>
-			<p class="plainText">Assertion failed. A MakeCode error that occurs when the condition in an <a href="https://makecode.microbit.org/reference/control/assert">assert</a> was false.</p>
+			<p class="plainText">Assertion failed. A MakeCode error that occurs when the condition in an <a target="_blank" href="https://makecode.microbit.org/reference/control/assert">assert</a> was false.</p>
 			<h4>Resolution</h4>
-			<p class="plainText">This is an error introduced through use of the assert function in MakeCode. See the example <a href="https://makecode.microbit.org/reference/control/assert">here</a> for usage.</p>
+			<p class="plainText">This is an error introduced through use of the assert function in MakeCode. See the example <a target="_blank" href="https://makecode.microbit.org/reference/control/assert">here</a> for usage.</p>
 	
 			<h3 id="stepThree">Web Python Editor</h3>
-			<p class="plainText">The solutions to many micro:bit software issues, like the below, can be found on micro:bit's <a href="https://support.microbit.org/support/solutions/folders/19000163392">Software Support Page.</a></p>
+			<p class="plainText">The solutions to many micro:bit software issues, like the below, can be found on micro:bit's <a target="_blank" href="https://support.microbit.org/support/solutions/folders/19000163392">Software Support Page.</a></p>
 			<h4>MicroPython Strange Rounding Error</h4>
 			<h4>Description</h4>
 			<p class="plainText">When I use floating point numbers, I get lots of digits displayed after a number (eg 18.9 gets displayed as 18.89999).</p>
 			<h4>Cause</h4>
-			<p class="plainText"><a href="https://github.com/bbcmicrobit/micropython/issues/367#issuecomment-258059673ß">https://github.com/bbcmicrobit/micropython/issues/367#issuecomment-258059673ß</a></p>
+			<p class="plainText"><a target="_blank" href="https://github.com/bbcmicrobit/micropython/issues/367#issuecomment-258059673ß">https://github.com/bbcmicrobit/micropython/issues/367#issuecomment-258059673ß</a></p>
 			<p class="plainText">The micro:bit uses 30-bit floating point and 18.9 is parsed correctly/accurately but it's then rounded down to 18.899999 when stored in 30 bits.</p>
 			<p class="plainText">Floating point numbers are always going to have inaccuracies and you should use formatting like "%.2f" if you want a certain number of digits in the output.</p>
 			<h4>Workaround</h4>
-			<p class="plainText"><a href="https://support.microbit.org/support/solutions/articles/19000026098-strange-rounding-error">From micro:bit:</a></p>
+			<p class="plainText"><a target="_blank" href="https://support.microbit.org/support/solutions/articles/19000026098-strange-rounding-error">From micro:bit:</a></p>
 			
 			<pre><code><span class="n">number</span> = <span class="nf">18.9</span>
 <span class="n">display</span>.scroll(<span class="mi">"%.1f"</span> % <span class="kn">number</span>)</code></pre>
 			<h4>My Hex Program Downloaded as an Unnamed File</h4>
 			<h4>Description</h4>
-			<p class="plainText">"Safari has a bug that means your work will be downloaded as an un-named file. Please rename it to something ending in .hex. Alternatively, use a browser such as Firefox or Chrome. They do not suffer from this bug" will appear in the <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor when you try to download a .Hex file using Safari on MacOS. The file will download but will not have the .hex extension that the micro:bit needs to process the file and run the program.</p>
+			<p class="plainText">"Safari has a bug that means your work will be downloaded as an un-named file. Please rename it to something ending in .hex. Alternatively, use a browser such as Firefox or Chrome. They do not suffer from this bug" will appear in the <a target="_blank" href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor when you try to download a .Hex file using Safari on MacOS. The file will download but will not have the .hex extension that the micro:bit needs to process the file and run the program.</p>
 			<h4>Resolution</h4>
 			<p class="plainText">Rename the file, giving it the appropriate .hex extension or if you are able, use an alternative browser such as Firefox or Chrome that do not exhibit the bug.</p>
 
 			<h4>My Python Program Downloaded as an Unnamed File</h4>
 			<h4>Description</h4>
-			<p class="plainText">"Safari has a bug that means your work will be downloaded as an un-named file. Please rename it to something ending in .py. Alternatively, use a browser such as Firefox or Chrome. They do not suffer from this bug." will appear in the <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor when you try to download a python script .py file using Safari on MacOS. The file will download but will not have the .py extension that an editor needs to process the file.</p>
+			<p class="plainText">"Safari has a bug that means your work will be downloaded as an un-named file. Please rename it to something ending in .py. Alternatively, use a browser such as Firefox or Chrome. They do not suffer from this bug." will appear in the <a target="_blank" href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor when you try to download a python script .py file using Safari on MacOS. The file will download but will not have the .py extension that an editor needs to process the file.</p>
 			<h4>Resolution</h4>
 			<p class="plainText">Rename the file, giving it the appropriate .py extension or if you are able, use an alternative browser such as Firefox or Chrome that do not exhibit the bug.</p>
 
 			<h4>Oops! Your script is too long given the limited memory on the device.</h4>
 			<h4>Description</h4>
-			<p class="plainText">This error message will appear in the <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor if you try to download a hex file that contains too many lines of code.</p>
+			<p class="plainText">This error message will appear in the <a target="_blank" href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor if you try to download a hex file that contains too many lines of code.</p>
 			<h4>Resolution</h4>
 			<p class="plainText">Reduce the amount of code in your program if you are able.</p>
 
 			<h4>Sorry, we couldn't recognise this file</h4>
 			<h4>Description</h4>
-			<p class="plainText">This error message will appear in the <a href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor if the .hex file you are trying to load was created in another editor such as makecode.microbit.org, or in a different version of the python editor.</p>
-			<p class="plainText"><a href="https://support.microbit.org/support/solutions/articles/19000097258-sorry-we-couldn-t-recognize-this-file-">This article explains the same error in the MakeCode editor</a></p>
+			<p class="plainText">This error message will appear in the <a target="_blank" href="https://python.microbit.org/v/2.0">python.microbit.org</a> editor if the .hex file you are trying to load was created in another editor such as makecode.microbit.org, or in a different version of the python editor.</p>
+			<p class="plainText"><a target="_blank" href="https://support.microbit.org/support/solutions/articles/19000097258-sorry-we-couldn-t-recognize-this-file-">This article explains the same error in the MakeCode editor</a></p>
 			<h4>Resolution</h4>
 			<p class="plainText">Load the .hex file in the editor in which it was created.</p>
 
 			<h3 id="stepFour">makeCode Editor</h3>
-			<p class="plainText">The solutions to many micro:bit software issues, like the below, can be found on micro:bit's <a href="https://support.microbit.org/support/solutions/folders/19000163392">Software Support Page.</a></p>
+			<p class="plainText">The solutions to many micro:bit software issues, like the below, can be found on micro:bit's <a target="_blank" href="https://support.microbit.org/support/solutions/folders/19000163392">Software Support Page.</a></p>
 			<h4>Sorry, We Couldn't Recognize this File</h4>
 			<img class="error" src="../../images/couldnt_recognize_this_file.png" alt="Error message: 'Sorry, we could not recognize this file.'">
 			<h4>Description</h4>
-			<p class="plainText">This error message will appear in the <a href="https://makecode.microbit.org/">makecode.microbit.org</a> editor if the .hex file you are trying to load was created in another editor such as <a href="https://python.microbit.org/v/2.0">python.microbit.org</a>.</p>
+			<p class="plainText">This error message will appear in the <a target="_blank" href="https://makecode.microbit.org/">makecode.microbit.org</a> editor if the .hex file you are trying to load was created in another editor such as <a target="_blank" href="https://python.microbit.org/v/2.0">python.microbit.org</a>.</p>
 			<h4>Resolution</h4>
 			<p class="plainText">Load the .hex file in the editor in which it was created.</p>
 
 			<h4>Oops, Don't Know How to Load this File</h4>
 			<img class="error" src="../../images/dont_know_how_to_load.png" alt="Error message: 'Oops, don't know how to load this file!'">
 			<h4>Description</h4>
-			<p class="plainText">This error message will appear in the <a href="https://makecode.microbit.org/">makecode.microbit.org</a> editor if the file you are trying to load does not have the required .hex file extension.</p>
+			<p class="plainText">This error message will appear in the <a target="_blank" href="https://makecode.microbit.org/">makecode.microbit.org</a> editor if the file you are trying to load does not have the required .hex file extension.</p>
 			<h4>Resolution</h4>
 			<p class="plainText">Load a file that was created in MakeCode for micro:bit, that has a valid .hex extension</p>
 
 			<h4>Network Request Failed</h4>
 			<img class="error" src="../../images/network_request_failed.png" alt="Error message: 'Network request failed!'">
 			<h4>Description</h4>
-			<p class="plainText">This error message will appear in the makecode.microbit.org editor if the editor cannot connect to another cloud service, for example downloading an extension. The message might appear behind another window telling you that the extension is being downloaded. Sometimes this is due to the service throttling connections to prevent DoS attacks. See <a href="https://github.com/Microsoft/pxt-microbit/issues/706">this issue on GitHub for further information.</a></p>
+			<p class="plainText">This error message will appear in the makecode.microbit.org editor if the editor cannot connect to another cloud service, for example downloading an extension. The message might appear behind another window telling you that the extension is being downloaded. Sometimes this is due to the service throttling connections to prevent DoS attacks. See <a target="_blank" href="https://github.com/Microsoft/pxt-microbit/issues/706">this issue on GitHub for further information.</a></p>
 			<h4>Resolution</h4>
 			<ul class="plainText">
-				<li>Make sure the resource that you are trying to use is accessible to the outside world. Try checking the browser console log for errors (see the <a href="https://support.microbit.org/support/solutions/articles/19000097261-network-request-failed-">micro:bit support page</a> for help with this).</li>
-				<li>Try using a different computer to see if you still get the error Open a support ticket or if you have a GitHub account an issue on <a href="https://github.com/Microsoft/pxt-microbit/issues">pxt-microbit.</a></li>
+				<li>Make sure the resource that you are trying to use is accessible to the outside world. Try checking the browser console log for errors (see the <a target="_blank" href="https://support.microbit.org/support/solutions/articles/19000097261-network-request-failed-">micro:bit support page</a> for help with this).</li>
+				<li>Try using a different computer to see if you still get the error Open a support ticket or if you have a GitHub account an issue on <a target="_blank" href="https://github.com/Microsoft/pxt-microbit/issues">pxt-microbit.</a></li>
 			</ul>
 
 			<h4>Program Error: r.isRef Is Not A Function</h4>
 			<img class="error" src="../../images/ref_is_not_a_function.png" alt="Error message: 'Program Error: r.isRef Is Not A Function'">
 			<h4>Description</h4>
-			<p class="plainText">This is a generic error that will appear in the <a href="https://makecode.microbit.org/">makecode.microbit.org</a> editor if there is an issue with the program when it is run thorough the simulator.</p>
+			<p class="plainText">This is a generic error that will appear in the <a target="_blank" href="https://makecode.microbit.org/">makecode.microbit.org</a> editor if there is an issue with the program when it is run thorough the simulator.</p>
 			<h4>Resolution</h4>
 			<p class="plainText">These are hard to diagnose, but a common example is using a variable in your program that hasn't been declared. Check through your code and if you can't resolve it, open a support ticket attaching the link to the program or your .hex file.</p>
 
@@ -184,7 +184,7 @@
 			<h4>Resolution</h4>
 			<p class="plainText">Remove any statements in your On Start that pause.</p>
 			<p class="plainText">Alternatively, if you need pauses in your On Start for some reason, at the end of your On Start set a boolean flag to True, and check the value of that flag in your Forever loops - only starting the Forever loop content once that boolean flag has been set to True.</p>
-			<p class="plainText">Get more information on why this is <a href="https://support.microbit.org/support/solutions/articles/19000053084-forever-runs-before-onstart-finishes">here.</a></p>
+			<p class="plainText">Get more information on why this is <a target="_blank" href="https://support.microbit.org/support/solutions/articles/19000053084-forever-runs-before-onstart-finishes">here.</a></p>
 			
 		</div> <!--id="instruction"-->
 	</div> <!--id="bottomContainer"-->
